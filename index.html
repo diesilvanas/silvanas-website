@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silvanas – Schlagerduo aus Münster | Neue Single & Termine</title>
+<meta name="description" content="Die Silvanas sind André & Friedhelm – das Schlagerduo für modernen Schlagerpop. Neue Single „Wie kannst du mich verlassen (Nur So! Remix)", alle Termine & Booking.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Beim Livegang: relative Pfade unten durch absolute URLs ersetzen (https://www.silvanas.de/...) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Silvanas – Schlagerpop mit Herz & Beat">
+<meta property="og:description" content="Neue Single „Wie kannst du mich verlassen (Nur So! Remix)" jetzt im Stream. Alle Shows 2026/2027 & Booking.">
+<meta property="og:image" content="https://www.silvanas.de/og-image.jpg">
+<meta property="og:url" content="https://www.silvanas.de/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --ink:#0a0a12;
+  --panel:#12121d;
+  --panel-2:#181828;
+  --line:rgba(255,255,255,.08);
+  --text:#f4f2ee;
+  --muted:#a7a3b3;
+  --heart:#ff2e63;
+  --gold:#ffb03a;
+  --champagne:#e8c77b;
+  --grad:linear-gradient(90deg,#ff2e63 0%,#ff7038 55%,#ffb03a 100%);
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:'Outfit',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- Effekt: Glow-Orbs ---------- */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;pointer-events:none;z-index:0}
+.orb-1{width:520px;height:520px;background:#ff2e6333;top:-140px;left:-140px;animation:drift 18s ease-in-out infinite alternate}
+.orb-2{width:420px;height:420px;background:#ffb03a2b;top:40vh;right:-160px;animation:drift 22s ease-in-out infinite alternate-reverse}
+.orb-3{width:380px;height:380px;background:#7b2eff22;bottom:-120px;left:30vw;animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.15)}}
+
+/* ---------- Fester Kopfbereich (Topbar + Nav bleiben beim Scrollen sichtbar) ---------- */
+.site-head{position:sticky;top:0;z-index:60}
+
+/* ---------- Streaming-Topbar ---------- */
+.topbar{position:relative;z-index:51;background:linear-gradient(90deg,#1a0d14,#241322,#1a0d14);border-bottom:1px solid var(--line);padding:9px 0;font-size:.85rem}
+.topbar .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.topbar .lead{color:var(--champagne);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem}
+.topbar a{padding:5px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:var(--text);font-weight:500;transition:.25s;background:rgba(255,255,255,.04)}
+.topbar a:hover{border-color:var(--champagne);color:var(--champagne)}
+
+/* ---------- Navigation ---------- */
+nav{position:relative;z-index:50;transition:.35s}
+nav .bar{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1280px;margin:0 auto;position:relative;z-index:2}
+nav::before{content:"";position:absolute;inset:0;background:rgba(10,10,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);opacity:0;transition:.35s;pointer-events:none}
+nav.scrolled::before{opacity:1}
+.nav-links{display:flex;gap:30px;align-items:center;font-weight:400;font-size:.95rem}
+.nav-links a{color:var(--muted);transition:.25s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.nav-links a.btn-grad{color:#1a0a08}
+.nav-links a.btn-grad:hover{color:#1a0a08}
+.nav-links a.btn-grad::after{display:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:999px;font-weight:600;font-size:.95rem;letter-spacing:.02em;transition:.3s;border:none;cursor:pointer}
+.btn-grad{background:var(--grad);color:#1a0a08;box-shadow:0 8px 30px #ff2e6340}
+.btn-grad:hover{transform:translateY(-2px);box-shadow:0 14px 40px #ff2e6360}
+.btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--text);background:transparent;font-family:'Outfit',sans-serif}
+.btn-ghost:hover{border-color:var(--champagne);color:var(--champagne)}
+.btn-nav{padding:10px 22px;font-size:.88rem}
+.burger{display:none;background:none;border:none;cursor:pointer;z-index:60}
+.burger span{display:block;width:26px;height:2px;background:var(--text);margin:6px 0;transition:.3s}
+
+/* ---------- Logo ---------- */
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{height:44px;width:auto}
+
+/* ---------- Hero ---------- */
+header{position:relative;min-height:calc(100svh - 120px);display:flex;align-items:center;overflow:hidden;z-index:1}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 70% 20%,#2a1030 0%,transparent 60%),
+  radial-gradient(ellipse 70% 55% at 20% 85%,#301017 0%,transparent 60%),
+  var(--ink)}
+.hero-noise{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:60px 24px 80px;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--champagne);margin-bottom:26px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--grad)}
+.hero h1{font-size:clamp(4rem,11vw,9.5rem);margin-bottom:10px}
+.hero h1 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted);max-width:520px;margin:22px 0 38px;font-weight:300}
+.hero .sub b{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-badges{display:flex;gap:26px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;letter-spacing:.06em}
+.hero-badges span{display:flex;align-items:center;gap:8px}
+.hero-badges i{width:6px;height:6px;border-radius:50%;background:var(--grad);display:inline-block}
+.hero-img{position:relative;text-align:center}
+.hero-img::before{content:"";position:absolute;inset:8% 4% 0 4%;background:var(--grad);border-radius:32px;opacity:.16;filter:blur(50px);animation:pulse-glow 4s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{opacity:.14;transform:scale(1)}50%{opacity:.26;transform:scale(1.04)}}
+.hero-img img{position:relative;z-index:2;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.burst{position:absolute;bottom:12%;right:-2%;z-index:3;background:var(--grad);color:#1a0a08;font-family:'Anton';font-size:.95rem;letter-spacing:.05em;line-height:1.25;padding:14px 20px;border-radius:14px;transform:rotate(-5deg);box-shadow:0 10px 34px #ff2e6355;text-transform:uppercase;text-align:center;animation:wiggle 3.4s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(-1deg)}}
+/* Equalizer */
+.eq{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);display:flex;gap:5px;align-items:flex-end;height:46px;z-index:1;opacity:.9}
+.eq b{width:5px;border-radius:3px;background:var(--grad);animation:eq 1.1s ease-in-out infinite}
+.eq b:nth-child(2n){animation-duration:.9s;animation-delay:.15s}
+.eq b:nth-child(3n){animation-duration:1.3s;animation-delay:.3s}
+.eq b:nth-child(5n){animation-duration:.8s;animation-delay:.05s}
+@keyframes eq{0%,100%{height:18%}50%{height:100%}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* Einmaliger Auftritt beim Laden: Hero-Elemente treten nacheinander auf */
+@keyframes heroUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.hero > *{opacity:0;animation:heroUp .8s cubic-bezier(.2,.6,.2,1) forwards}
+.hero > *:nth-child(1){animation-delay:.15s}
+.hero > *:nth-child(2){animation-delay:.3s}
+.hero > *:nth-child(3){animation-delay:.45s}
+.hero > *:nth-child(4){animation-delay:.6s}
+.hero > *:nth-child(5){animation-delay:.75s}
+.hero-img{opacity:0;animation:heroUp 1s cubic-bezier(.2,.6,.2,1) .5s forwards}
+
+/* Puls-Linie im Logo zeichnet sich einmal wie ein Herzschlag */
+.logo svg polyline{stroke-dasharray:420;stroke-dashoffset:420;animation:pulseDraw 1.6s ease-out .4s forwards}
+@keyframes pulseDraw{to{stroke-dashoffset:0}}
+
+/* ---------- Event-Popup (dezente Karte unten rechts, erscheint verzögert) ---------- */
+.promo-veil{position:fixed;inset:0;z-index:64;background:rgba(6,6,12,.6);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .4s}
+.promo-veil.show{opacity:1}
+.promo-pop{position:relative;width:380px;max-width:calc(100vw - 32px);max-height:calc(100svh - 48px);overflow-y:auto;background:linear-gradient(145deg,#181828,#101019);border:1px solid rgba(232,199,123,.4);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 90px rgba(0,0,0,.7);transform:translateY(24px) scale(.97);transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+.promo-veil.show .promo-pop{transform:none}
+.promo-close{position:absolute;top:12px;right:12px;z-index:2;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(10,10,18,.6);color:var(--text);font-size:.9rem;cursor:pointer;transition:.25s;line-height:1}
+.promo-close:hover{border-color:var(--heart);color:var(--heart)}
+.promo-flyer{display:block;width:100%}
+.promo-flyer img{width:100%;border-radius:12px;border:1px solid var(--line)}
+.promo-kicker{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);font-weight:600;margin-bottom:7px}
+.promo-title{font-family:'Anton';font-size:1.4rem;text-transform:uppercase;line-height:1.12;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:7px}
+.promo-meta{color:var(--muted);font-size:.85rem;line-height:1.55;margin-bottom:12px}
+.promo-meta b{color:var(--text);font-weight:500}
+.promo-count{display:flex;gap:8px;margin-bottom:14px}
+.promo-box{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:7px 6px;text-align:center}
+.promo-box .n{font-family:'Anton';font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.promo-box .l{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
+.promo-heute{font-family:'Anton';font-size:1.4rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-transform:uppercase}
+.promo-ctas{display:flex;gap:9px;flex-wrap:wrap}
+.promo-ctas .btn{padding:9px 18px;font-size:.82rem}
+@media (max-width:560px){
+  .promo-pop{width:340px}
+}
+
+/* ---------- Cookie-Banner ---------- */
+.cookie-bar{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);z-index:80;width:min(720px,calc(100vw - 32px));background:linear-gradient(145deg,#181828,#101019);border:1px solid rgba(232,199,123,.4);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:20px;box-shadow:0 20px 60px rgba(0,0,0,.6);opacity:0;transition:.4s}
+.cookie-bar.show{opacity:1;transform:translate(-50%,0)}
+.cookie-bar p{color:var(--muted);font-size:.85rem;line-height:1.5;margin:0;flex:1}
+.cookie-bar a{color:var(--champagne)}
+.cookie-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-btns .btn{padding:9px 18px;font-size:.8rem;white-space:nowrap}
+@media (max-width:640px){.cookie-bar{flex-direction:column;align-items:stretch;text-align:center}.cookie-btns{justify-content:center}}
+
+/* Nach-oben-Button */
+.to-top{position:fixed;right:26px;bottom:26px;z-index:55;width:52px;height:52px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px #ff2e6350;opacity:0;transform:translateY(16px);pointer-events:none;transition:.35s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{transform:translateY(-3px);box-shadow:0 14px 38px #ff2e6370}
+.to-top svg{display:block}
+
+/* Barrierefreiheit: reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .hero > *,.hero-img{opacity:1}
+}
+
+/* ---------- Marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;background:rgba(255,255,255,.02);position:relative;z-index:1}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:scrollx 28s linear infinite;width:max-content}
+.marquee-track span{font-family:'Anton';text-transform:uppercase;font-size:1.05rem;letter-spacing:.14em;color:var(--muted)}
+.marquee-track span.hot{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{position:relative;padding:110px 0;z-index:1}
+.sec-head{margin-bottom:56px}
+.sec-head .kicker{margin-bottom:14px}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.sec-head p{color:var(--muted);max-width:560px;margin-top:14px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* ---------- Single ---------- */
+.single-card{display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:center;background:linear-gradient(135deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:calc(var(--radius) + 8px);padding:48px;position:relative;overflow:hidden}
+.single-card::before{content:"";position:absolute;top:-40%;right:-10%;width:400px;height:400px;background:#ff2e6318;border-radius:50%;filter:blur(70px)}
+.cover{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55);transition:.4s}
+.cover:hover{transform:scale(1.025) rotate(-.5deg)}
+.cover img{width:100%}
+.cover .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,18,.25);opacity:0;transition:.3s}
+.cover:hover .play{opacity:1}
+.play-btn{width:74px;height:74px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 40px #ff2e6380}
+.play-btn svg{margin-left:5px}
+.single-info .tag{display:inline-block;padding:7px 16px;border-radius:999px;background:#ff2e6322;color:#ff5c85;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px}
+.single-info h3{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:16px}
+.single-info p{color:var(--muted);max-width:520px;margin-bottom:30px}
+.platforms{display:flex;gap:12px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.9rem;font-weight:500;transition:.3s;background:rgba(255,255,255,.03)}
+.chip:hover{border-color:var(--champagne);transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.sp-embed{width:100%;max-width:520px;border:0;border-radius:14px;margin-top:24px;display:block}
+
+/* ---------- Musik-Grid ---------- */
+.tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.track{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.35s;position:relative;overflow:hidden}
+.track::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--grad);transition:.4s}
+.track:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.16)}
+.track:hover::after{width:100%}
+.track .t-cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;margin-bottom:20px;box-shadow:0 14px 34px rgba(0,0,0,.4);transition:.35s}
+.track:hover .t-cover{transform:scale(1.03)}
+.track .year{font-size:.78rem;letter-spacing:.2em;color:var(--champagne);text-transform:uppercase;font-weight:600}
+.track h3{font-size:1.35rem;margin:12px 0 8px}
+.track p{color:var(--muted);font-size:.92rem}
+
+/* ---------- Über / Stats ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-img{position:relative}
+.about-img::before{content:"";position:absolute;inset:-18px;border:1px solid rgba(232,199,123,.35);border-radius:calc(var(--radius) + 10px);transform:rotate(-2deg)}
+.about-img img{border-radius:var(--radius);position:relative;box-shadow:0 30px 70px rgba(0,0,0,.5);width:100%;height:auto;background:radial-gradient(ellipse at top,#2a1030,#12121d)}
+.about-txt h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:22px}
+.about-txt p{color:var(--muted);margin-bottom:18px}
+.about-txt p b{color:var(--text);font-weight:500}
+.quote{border-left:3px solid;border-image:var(--grad) 1;padding:6px 0 6px 22px;margin:26px 0;font-size:1.15rem;font-weight:400;color:var(--text);font-style:italic}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:80px}
+.stat{text-align:center;padding:34px 16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);transition:.3s}
+.stat:hover{border-color:rgba(232,199,123,.4)}
+.stat .num{font-family:'Anton';font-size:clamp(2.2rem,4vw,3.2rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+
+/* ---------- Termine ---------- */
+.month-div{display:flex;align-items:center;gap:20px;margin:38px 0 18px;color:var(--champagne);font-family:'Anton';font-size:1.05rem;letter-spacing:.2em;text-transform:uppercase}
+.month-div::before,.month-div::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(232,199,123,.5),transparent)}
+.gigs{display:flex;flex-direction:column;gap:14px}
+.gig{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);transition:.3s;overflow:hidden}
+.gig:hover{border-color:rgba(255,46,99,.45);background:var(--panel-2)}
+.gig-head{display:grid;grid-template-columns:120px 1fr auto;gap:26px;align-items:center;padding:22px 30px;cursor:pointer}
+.gig .date{text-align:center;border-right:1px solid var(--line);padding-right:24px}
+.gig .date .d,.gig .date .m,.gig .date .wd{display:block}
+.gig .date .d{font-family:'Anton';font-size:1.9rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gig .date .m{color:var(--champagne);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-top:3px}
+.gig .date .wd{color:var(--muted);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+.gig h3{font-size:1.1rem;font-family:'Outfit';font-weight:600;text-transform:none;letter-spacing:0}
+.gig .loc{color:var(--muted);font-size:.88rem;margin-top:3px}
+.gig .toggle{color:var(--muted);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 20px;transition:.25s;white-space:nowrap}
+.gig-head:hover .toggle{border-color:var(--champagne);color:var(--champagne)}
+.gig-detail{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.gig.open .gig-detail{max-height:680px}
+.gig-detail-inner{padding:4px 30px 26px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
+.gig-meta{display:flex;gap:28px;flex-wrap:wrap;color:var(--muted);font-size:.92rem;padding-top:18px}
+.gig-meta b{color:var(--text);font-weight:500}
+.gig-count{font-family:'Anton';font-size:.95rem;letter-spacing:.08em;color:var(--champagne);text-transform:uppercase}
+.gig-flyer{display:inline-flex;align-items:center;gap:16px;text-decoration:none}
+.gig-flyer img{height:150px;width:auto;border-radius:12px;border:1px solid var(--line);transition:.3s}
+.gig-flyer:hover img{transform:scale(1.04);border-color:var(--champagne)}
+.gig-flyer span{color:var(--champagne);font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.gig-actions{display:flex;gap:10px;flex-wrap:wrap}
+.act{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.82rem;font-weight:500;transition:.25s;background:rgba(255,255,255,.03);cursor:pointer;color:var(--text)}
+.act:hover{border-color:var(--champagne);color:var(--champagne);transform:translateY(-2px)}
+.act.cal{border-color:rgba(255,46,99,.4)}
+.gigs-more{text-align:center;margin-top:36px}
+/* Veranstalter-CTA in der Termin-Sektion */
+.gig-cta{margin-top:44px;background:linear-gradient(135deg,var(--panel-2),var(--panel));border:1px solid rgba(255,46,99,.35);border-radius:calc(var(--radius) + 6px);padding:44px 48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+.gig-cta::before{content:"";position:absolute;top:-50%;right:-5%;width:340px;height:340px;background:#ff2e6315;border-radius:50%;filter:blur(60px)}
+.gig-cta h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:10px}
+.gig-cta p{color:var(--muted);max-width:560px}
+.gig-cta p b{color:var(--text);font-weight:500}
+/* Fanclub */
+.fan-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.fan-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px;transition:.35s;position:relative;overflow:hidden}
+.fan-card::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--grad);transition:.4s}
+.fan-card:hover{transform:translateY(-6px);border-color:rgba(232,199,123,.4)}
+.fan-card:hover::after{width:100%}
+.fan-card h3{font-size:1.4rem;margin-bottom:12px}
+.fan-card p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.fan-card p b{color:var(--text);font-weight:500}
+.fan-card .addr{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:.92rem;color:var(--text);line-height:1.7}
+
+.albums{grid-template-columns:repeat(2,1fr)}
+
+/* ---------- Videos ---------- */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.video-card{cursor:pointer}
+.video-frame{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#000;transition:.35s}
+.video-card:hover .video-frame{transform:translateY(-5px);border-color:rgba(232,199,123,.4)}
+.video-frame img{width:100%;height:100%;object-fit:cover;transition:.35s;opacity:.85}
+.video-card:hover .video-frame img{opacity:1;transform:scale(1.04)}
+.video-frame .vp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.video-frame .vp span{width:60px;height:60px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 34px #ff2e6370;transition:.3s}
+.video-card:hover .vp span{transform:scale(1.12)}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-card h3{font-size:1.02rem;font-family:'Outfit';font-weight:600;text-transform:none;letter-spacing:0;margin-top:14px;color:var(--text)}
+
+/* ---------- Shop ---------- */
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.product .p-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;margin-bottom:18px;box-shadow:0 14px 34px rgba(0,0,0,.4);transition:.35s}
+.product:hover .p-img{transform:scale(1.03)}
+.product{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative;transition:.35s;overflow:hidden}
+.product::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--grad);transition:.4s}
+.product:hover{transform:translateY(-6px);border-color:rgba(232,199,123,.4)}
+.product:hover::after{width:100%}
+.product .p-tag{display:inline-block;padding:6px 14px;border-radius:999px;background:#ff2e6322;color:#ff5c85;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.product h3{font-size:1.35rem;margin-bottom:8px}
+.product p{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+.product .price{font-family:'Anton';font-size:1.7rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- Booking ---------- */
+.booking{background:
+  radial-gradient(ellipse 60% 90% at 85% 10%,#ff2e6326 0%,transparent 55%),
+  radial-gradient(ellipse 50% 80% at 10% 90%,#ffb03a1c 0%,transparent 55%),
+  linear-gradient(135deg,#181828,#0e0e18);
+  border:1px solid var(--line);border-radius:calc(var(--radius) + 10px);padding:70px 60px;position:relative;overflow:hidden}
+.booking-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.booking h2{font-size:clamp(2rem,4.4vw,3.4rem);margin-bottom:18px}
+.booking p{color:var(--muted);margin-bottom:26px}
+.usps{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:34px}
+.usps li{display:flex;gap:14px;align-items:flex-start;color:var(--text);font-weight:300}
+.usps li b{font-weight:500}
+.usps .check{flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#1a0a08;font-weight:700;margin-top:2px}
+.contact-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--radius);padding:40px;backdrop-filter:blur(6px)}
+.contact-card h3{font-size:1.3rem;margin-bottom:22px}
+.steps{counter-reset:s;list-style:none;display:flex;flex-direction:column;gap:18px;margin-bottom:30px}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:baseline;color:var(--muted)}
+.steps li::before{content:counter(s);font-family:'Anton';font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact-lines{display:flex;flex-direction:column;gap:10px;font-weight:400}
+.contact-lines a{color:var(--champagne);transition:.25s}
+.contact-lines a:hover{color:var(--gold)}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.faq:hover{border-color:rgba(232,199,123,.35)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 26px;cursor:pointer;font-weight:600;font-size:1.02rem}
+.faq-q .pm{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--champagne);transition:.3s}
+.faq.open .faq-q .pm{background:var(--grad);color:#1a0a08;border-color:transparent;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq.open .faq-a{max-height:300px}
+.faq-a p{padding:0 26px 22px;color:var(--muted);font-size:.96rem}
+.faq-a a{color:var(--champagne)}
+
+/* ---------- Newsletter ---------- */
+.newsletter{text-align:center;max-width:640px;margin:0 auto}
+.newsletter h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
+.newsletter p{color:var(--muted);margin-bottom:30px}
+.nl-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.nl-form input{flex:1;padding:15px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text);font-family:'Outfit';font-size:.95rem;outline:none;transition:.3s}
+.nl-form input:focus{border-color:var(--champagne)}
+.nl-form input::placeholder{color:#6f6b7d}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-index:1}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot .logo svg{height:38px}
+.foot-col h4{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne);margin-bottom:16px;font-weight:600}
+.foot-col a{display:block;color:var(--muted);margin-bottom:9px;font-size:.92rem;transition:.25s}
+.foot-col a:hover{color:var(--text)}
+.foot-note{margin-top:46px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#6f6b7d;font-size:.82rem}
+
+/* ---------- Mobile ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;padding-top:50px;text-align:center}
+  .products{grid-template-columns:1fr}
+  .burst{font-size:.85rem;padding:12px 16px}
+  .kicker{justify-content:center}
+  .kicker::before{display:none}
+  .hero .sub{margin-inline:auto}
+  .hero h1 img{margin-inline:auto}
+  .hero-ctas,.hero-badges{justify-content:center}
+  .hero-img{max-width:420px;margin:0 auto}
+  .single-card{grid-template-columns:1fr;padding:32px;gap:34px}
+  .cover{max-width:340px;margin:0 auto}
+  .tracks,.albums,.video-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;gap:44px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .booking{padding:44px 26px}
+  .booking-grid{grid-template-columns:1fr;gap:40px}
+  .gig-head{grid-template-columns:86px 1fr;gap:16px;padding:18px 20px}
+  .gig-head .toggle{display:none}
+  .gig-detail-inner{padding:4px 20px 22px}
+  .gig-cta{grid-template-columns:1fr;padding:32px 26px;text-align:left}
+  .fan-grid{grid-template-columns:1fr}
+  .nl-form{flex-direction:column}
+  .nav-links{position:fixed;inset:0;background:rgba(10,10,18,.97);flex-direction:column;justify-content:center;font-size:1.3rem;gap:26px;transform:translateY(-100%);transition:.4s;backdrop-filter:blur(10px)}
+  .nav-links.open{transform:none}
+  .burger{display:block}
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<!-- ============ FESTER KOPFBEREICH ============ -->
+<div class="site-head">
+<!-- ============ STREAMING-TOPBAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="lead">Jetzt gleich reinhören</span>
+    <a href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://www.amazon.de/Tanz-mit-mir-Silvanas/dp/B0BFVCNG4C" target="_blank" rel="noopener">Amazon Music</a>
+    <a href="https://www.youtube.com/@Silvanasvideo/videos" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="bar">
+    <a href="#top" class="logo" aria-label="Silvanas Startseite">
+      <img src="logo-original.png" alt="Silvanas" style="height:48px;width:auto;display:block">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#single">Musik</a>
+      <a href="#videos">Videos</a>
+      <a href="#ueber">Über uns</a>
+      <a href="#shows">Shows</a>
+      <a href="#shop">Shop</a>
+      <a href="#fans">Fans</a>
+      <a href="#booking" class="btn btn-grad btn-nav">Jetzt buchen</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</div><!-- /site-head -->
+
+<!-- ============ HERO ============ -->
+<header id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="wrap hero-grid">
+    <div class="hero">
+      <span class="kicker">Das Schlagerduo · André &amp; Friedhelm</span>
+      <h1><img src="logo-original.png" alt="Silvanas – das Schlagerduo" style="width:min(85%,460px);height:auto;display:block;margin:6px 0 4px;filter:drop-shadow(0 14px 40px rgba(0,0,0,.55))"></h1>
+      <p class="sub">Wenn die ersten Takte laufen, bleibt keiner mehr sitzen: <b>Das sind die Silvanas.</b> Schlager, wie er heute klingt – und die neue Single ist da.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-grad" href="#single">▶&nbsp; Neue Single</a>
+        <a class="btn btn-ghost" href="#shows">Shows 2026</a>
+      </div>
+      <div class="hero-badges">
+        <span><i></i>Zwei Stimmen, ein Beat</span>
+        <span><i></i>15+ Jahre Bühne</span>
+        <span><i></i>Von Ostfriesland bis Tirol</span>
+      </div>
+    </div>
+    <div class="hero-img">
+      <span class="burst">Neu!<br>„Wie kannst du<br>mich verlassen"</span>
+      <img src="img/duo-freisteller.png" alt="Das Schlagerduo Silvanas – André und Friedhelm" loading="eager">
+      <div class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scrollen</div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Schlagerpop</span><span class="hot">•</span><span>Live-Musik</span><span class="hot">•</span><span>Discofox</span><span class="hot">•</span><span>Zwei Stimmen</span><span class="hot">•</span><span>Ein Beat</span><span class="hot">•</span><span>Wie kannst du mich verlassen</span><span class="hot">•</span>
+    <span>Schlagerpop</span><span class="hot">•</span><span>Live-Musik</span><span class="hot">•</span><span>Discofox</span><span class="hot">•</span><span>Zwei Stimmen</span><span class="hot">•</span><span>Ein Beat</span><span class="hot">•</span><span>Wie kannst du mich verlassen</span><span class="hot">•</span>
+  </div>
+</div>
+
+<!-- ============ SINGLE ============ -->
+<section id="single">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Jetzt überall im Stream</span>
+      <h2>Die neue Single</h2>
+    </div>
+    <div class="single-card reveal d1">
+      <a class="cover" href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">
+        <img src="img/single-remix-cover.jpg" alt="Cover der Single Wie kannst du mich verlassen (Nur So! Remix) von den Silvanas">
+        <span class="play"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </a>
+      <div class="single-info">
+        <span class="tag">Neu · 10.07.2026</span>
+        <h3>„Wie kannst du mich verlassen"<br>(Nur So! Remix)</h3>
+        <p>Ein Song übers Verlassenwerden – mit einem Beat, der genau das Gegenteil tut: <b>Er lässt euch nicht mehr los.</b> Aufdrehen, mitsingen, tanzen.</p>
+        <div class="platforms">
+          <a class="chip" href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">Spotify</a>
+          <a class="chip" href="https://www.amazon.de/Tanz-mit-mir-Silvanas/dp/B0BFVCNG4C" target="_blank" rel="noopener">Amazon Music</a>
+          <a class="chip" href="https://www.youtube.com/@Silvanasvideo/videos" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <iframe class="sp-embed" src="https://open.spotify.com/embed/album/4s348PK2j8qNRNqHhg4DzR?theme=0" height="152" loading="lazy" allow="encrypted-media" title="Silvanas auf Spotify anhören"></iframe>
+      </div>
+    </div>
+
+    <div style="height:56px"></div>
+    <div class="tracks">
+      <div class="track reveal"><img class="t-cover" src="img/single-solange-mein-herz.jpg" alt="Cover der Silvanas-Single Solange mein Herz" loading="lazy"><span class="year">2025 · Single</span><h3>Solange mein Herz</h3><p>Die Ballade für alle, die schon einmal mit ganzem Herzen geliebt haben.</p></div>
+      <div class="track reveal d1"><img class="t-cover" src="img/single-baby-blue.jpg" alt="Cover der Silvanas-Single Baby Blue" loading="lazy"><span class="year">2025 · Single</span><h3>Baby Blue</h3><p>Einmal gehört, den ganzen Tag gesummt – der Sommer-Ohrwurm.</p></div>
+      <div class="track reveal d2"><img class="t-cover" src="img/single-noch-heisser.jpg" alt="Cover der Silvanas-Single Noch heißer als die Hölle" loading="lazy"><span class="year">2025 · Single</span><h3>Noch heißer als die Hölle</h3><p>Damit fing alles an: der Song, mit dem sich die Silvanas neu erfunden haben.</p></div>
+    </div>
+
+    <div style="height:56px"></div>
+    <div class="tracks albums">
+      <div class="track reveal"><img class="t-cover" src="img/album-tanz-mit-mir.jpg" alt="Albumcover Silvanas – Tanz mit mir" loading="lazy"><span class="year">2022 · Album</span><h3>Tanz mit mir</h3><p>14 Songs zwischen Clubsound und Schunkelwalzer – das Album für die Autofahrt, die Küche und die Wohnzimmer-Disco.</p><a class="chip" href="#shop" style="margin-top:6px">CD bestellen · 15,90 €</a></div>
+      <div class="track reveal d1"><img class="t-cover" src="adio-maria-cover.jpg" alt="Albumcover Silvanas – Adio Maria" loading="lazy"><span class="year">2015 · Debütalbum</span><h3>Adio Maria</h3><p>Wo alles begann – das Debüt, mit dem sich die Silvanas in die Schlagerherzen gespielt haben.</p><a class="chip" href="https://www.amazon.de/s?k=silvanas+adio+maria" target="_blank" rel="noopener" style="margin-top:6px">Als Download laden</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER ============ -->
+<section id="ueber" style="background:rgba(255,255,255,.015)">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-img reveal">
+        <img src="das-sind-wir-live.webp" alt="Die Silvanas live auf der Bühne – volle Tanzfläche im Hintergrund">
+      </div>
+      <div class="about-txt reveal d1">
+        <span class="kicker">Das sind wir</span>
+        <h2>Zwei Cousins.<br>Eine Bühne.<br><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">Ein Sound.</span></h2>
+        <p>Cousins, beste Freunde, Bühnenpartner: André und Friedhelm stehen seit über 15 Jahren gemeinsam auf der Bühne – und klingen heute frischer als je zuvor. Ihr Rezept: <b>Schlagergefühl trifft Beats, die sofort in die Beine gehen.</b></p>
+        <p>Live gibt es bei den Silvanas keine Show von der Stange: Die beiden singen nicht für euch – <b>sie feiern mit euch.</b> Nah am Publikum, mitten im Saal, mit einem Programm, das Oma und Enkelin auf dieselbe Tanzfläche holt. Wer einmal dabei war, kommt wieder.</p>
+        <div class="quote">„Nur wer Herz hat, kann auch mit Herz Musik machen."</div>
+        <a class="btn btn-ghost" href="#booking">Silvanas kennenlernen</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="num" data-count="15">0</div><div class="lbl">Jahre Bühne</div></div>
+      <div class="stat reveal d1"><div class="num" data-count="30">0</div><div class="lbl">Eigene Songs</div></div>
+      <div class="stat reveal d2"><div class="num" data-count="5">0</div><div class="lbl">Länder live</div></div>
+      <div class="stat reveal d3"><div class="num" data-count="2">0</div><div class="lbl">Stimmen, ein Beat</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section id="videos" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Reinschauen</span>
+      <h2>Unsere Musikvideos</h2>
+      <p>Lauter aufdrehen lohnt sich – alle offiziellen Videos der Silvanas, ein Klick und ihr seid mittendrin.</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal" data-yt="VdEmt-0ScPE"><div class="video-frame"><img src="img/yt-VdEmt-0ScPE.jpg" alt="Musikvideo Baby Blue" loading="lazy"><span class="vp"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span></div><h3>Baby Blue</h3></div>
+      <div class="video-card reveal d1" data-yt="hIWQV3emcnM"><div class="video-frame"><img src="img/yt-hIWQV3emcnM.jpg" alt="Musikvideo Noch heißer als die Hölle" loading="lazy"><span class="vp"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span></div><h3>Noch heißer als die Hölle</h3></div>
+      <div class="video-card reveal d2" data-yt="KI59J_0MXBk"><div class="video-frame"><img src="img/yt-KI59J_0MXBk.jpg" alt="Musikvideo Wenn Gitarren erklingen" loading="lazy"><span class="vp"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span></div><h3>Wenn Gitarren erklingen</h3></div>
+      <div class="video-card reveal" data-yt="9ZVsx_3v8To"><div class="video-frame"><img src="img/yt-9ZVsx_3v8To.jpg" alt="Musikvideo Adio Maria" loading="lazy"><span class="vp"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span></div><h3>Adio Maria</h3></div>
+      <div class="video-card reveal d1" data-yt="QhxxL1l6ctU"><div class="video-frame"><img src="img/yt-QhxxL1l6ctU.jpg" alt="Musikvideo Den Ring den Du noch trägst" loading="lazy"><span class="vp"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span></div><h3>Den Ring den Du noch trägst</h3></div>
+      <div class="video-card reveal d2"><a class="video-frame" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-decoration:none" href="https://www.youtube.com/@Silvanasvideo/videos" target="_blank" rel="noopener"><span style="font-family:'Anton';font-size:1.3rem;color:var(--champagne);text-transform:uppercase;letter-spacing:.06em">Mehr auf YouTube</span><span style="color:var(--muted);font-size:.9rem">Kanal abonnieren &amp; nichts verpassen</span></a><h3>&nbsp;</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWS ============ -->
+<section id="shows">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Live erleben</span>
+      <h2>Shows <span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">2026 / 2027</span></h2>
+      <p>Ein Silvanas-Abend lässt sich nicht nachhören – man muss dabei gewesen sein. Hier sind eure Chancen, von Ostfriesland bis Tirol. Termin aussuchen, in den Kalender legen, hinfahren.</p>
+    </div>
+    <div class="gigs" id="gigList"></div>
+    <div class="gigs-more"><button class="btn btn-ghost" id="gigMore">Alle Termine anzeigen</button></div>
+    <div class="gig-cta reveal">
+      <div>
+        <span class="kicker">Für Veranstalter</span>
+        <h3>Ihr Termin fehlt hier noch?</h3>
+        <p><b>Ob noch in diesem Jahr oder für die nächste Saison:</b> Fragen Sie einfach Ihren Wunschtermin an – wir sagen Ihnen ehrlich und schnell, ob er frei ist. Sie hören innerhalb von 48 Stunden von uns.</p>
+      </div>
+      <a class="btn btn-grad" href="#booking">Wunschtermin anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section id="shop" style="background:rgba(255,255,255,.015)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Fanshop</span>
+      <h2>Direkt von uns</h2>
+      <p>Jede Bestellung packen wir selbst – von unserer Bühne zu euch nach Hause.</p>
+    </div>
+    <div class="products">
+      <div class="product reveal">
+        <span class="p-tag">CD</span>
+        <img class="p-img" src="img/shop-cd-box.jpg" alt="Silvanas-Album Tanz mit mir als CD" loading="lazy">
+        <h3>Tanz mit mir</h3>
+        <p>Das Album – 14 Songs zwischen Clubsound und Schunkelwalzer.</p>
+        <div class="price">15,90 €</div>
+      </div>
+      <div class="product reveal d1">
+        <span class="p-tag">Kuschelig</span>
+        <img class="p-img" src="img/shop-teddy.jpg" alt="Teddy Freddi – der Silvanas-Bär" loading="lazy">
+        <h3>Teddy Freddi</h3>
+        <p>Der offizielle Silvanas-Bär – zum Knuddeln und Mitnehmen.</p>
+        <div class="price">23,90 €</div>
+      </div>
+      <div class="product reveal d2">
+        <span class="p-tag">Für daheim</span>
+        <img class="p-img" src="img/shop-tasse.jpg" alt="Silvanas-Kaffeetasse mit Löffel" loading="lazy">
+        <h3>Kaffeetasse</h3>
+        <p>Mit Löffel – der Silvanas-Start in den Tag.</p>
+        <div class="price">14,90 €</div>
+      </div>
+    </div>
+    <div class="gigs-more reveal"><a class="btn btn-ghost" href="#">Zum Shop</a></div>
+  </div>
+</section>
+
+<!-- ============ FANCLUB ============ -->
+<section id="fans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Die Silvanas-Familie</span>
+      <h2>Allein ist man Fan.<br><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">Zusammen ist man Familie.</span></h2>
+      <p>Die schönsten Konzertmomente sind die, die man teilt. Unser Fanfest geht 2026 schon in die dritte Runde – weil aus Fans längst Freundschaften geworden sind.</p>
+    </div>
+    <div class="fan-grid">
+      <div class="fan-card reveal">
+        <h3>Werde Teil des Fanclubs</h3>
+        <p>Gemeinsame Konzertbesuche, Fantreffen und Menschen, die dieselbe Musik lieben wie du. <b>Du musst nichts können und nichts mitbringen – nur Lust auf schöne Abende.</b></p>
+        <p>Schreib uns einfach oder komm in unsere Facebook-Gemeinschaft – wir heißen jeden persönlich willkommen.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+          <a class="btn btn-grad" href="https://www.facebook.com/DieSilvanas/" target="_blank" rel="noopener">Zur Facebook-Familie</a>
+          <a class="btn btn-ghost" href="mailto:info@diesilvanas.de?subject=Ich%20m%C3%B6chte%20in%20den%20Fanclub">Fanclub anfragen</a>
+        </div>
+      </div>
+      <div class="fan-card reveal d1">
+        <h3>Fanpost &amp; Autogramme</h3>
+        <p>Eine Karte mit echter Unterschrift statt Pixeln: Schick uns deinen Autogrammwunsch – <b>wir beantworten jede Fanpost persönlich.</b></p>
+        <div class="addr">
+          Autogrammwunsch Silvanas<br>
+          Damaschkeweg 16 · 48145 Münster<br>
+          <span style="color:var(--muted);font-size:.85rem">Bitte frankierten Rückumschlag beilegen – dann kommt deine Karte sicher zu dir.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="booking">
+  <div class="wrap">
+    <div class="booking reveal">
+      <div class="booking-grid">
+        <div>
+          <span class="kicker">Für Veranstalter</span>
+          <h2>Schlagerduo<br>buchen</h2>
+          <p>Ob eine Veranstaltung in Erinnerung bleibt, entscheidet das Programm. Die Silvanas füllen die Tanzfläche – mit modernem Schlagerpop, den großen Klassikern zum Mitsingen und einer Show, die Generationen verbindet. Stadtfest, Schlagernacht, Firmenevent oder Gala: Sie buchen keinen Act, Sie buchen einen gelungenen Abend.</p>
+          <ul class="usps">
+            <li><span class="check">✓</span><span><b>TV-erprobt:</b> Auftritte in ARD, WDR und SWR</span></li>
+            <li><span class="check">✓</span><span><b>Echte Live-Musik:</b> zweistimmiger Gesang, mitten im Publikum statt nur auf der Bühne</span></li>
+            <li><span class="check">✓</span><span><b>Verlässlich &amp; komplett:</b> eigene Technik, Anreise im Tourbus</span></li>
+            <li><span class="check">✓</span><span><b>Flexibel:</b> Programm und Länge abgestimmt auf Ihre Veranstaltung</span></li>
+          </ul>
+          <p style="color:var(--champagne);font-weight:500">Der Kalender 2026/27 füllt sich – je früher Sie anfragen, desto größer Ihre Terminauswahl.</p>
+        </div>
+        <div class="contact-card">
+          <h3>In drei Schritten zur Zusage</h3>
+          <ol class="steps">
+            <li>Kurz anfragen – Formular oder Telefon</li>
+            <li>Antwort innerhalb von 48 Stunden</li>
+            <li>Termin fix – wir kümmern uns um den Rest</li>
+          </ol>
+          <div class="contact-lines">
+            <a href="tel:+491713265036">📞&nbsp; +49 171 326 503 6</a>
+            <a href="mailto:info@diesilvanas.de">✉️&nbsp; info@diesilvanas.de</a>
+          </div>
+          <div style="margin-top:26px"><a class="btn btn-grad" href="mailto:info@diesilvanas.de">Buchungsanfrage senden</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <span class="kicker" style="justify-content:center">Gut zu wissen</span>
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq reveal">
+        <div class="faq-q">Was kostet ein Auftritt der Silvanas?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Das hängt von Rahmen, Programmlänge und Anfahrt ab – deshalb nennen wir keine Pauschalpreise. Schicken Sie uns Ihre Eckdaten über die <a href="#booking">Buchungsanfrage</a>, und Sie erhalten innerhalb von 48 Stunden ein konkretes, unverbindliches Angebot.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Für welche Veranstaltungen kann man die Silvanas buchen?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Stadtfeste, Schlagernächte, Festzelte, Galas, Firmenevents und private Feiern – das Programm wird auf Ihre Veranstaltung abgestimmt: von der kompakten Show bis zum abendfüllenden Live-Programm mit Discofox, Schlagerpop und den großen Klassikern zum Mitsingen.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Bringen die Silvanas ihre eigene Technik mit?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Ja – wir reisen im eigenen Tourbus an, das komplette Equipment ist an Bord. Details zur Bühnen- und Tontechnik klären wir unkompliziert bei der Anfrage.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Wie weit reisen die Silvanas an?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Wir spielen in ganz Deutschland sowie in Österreich, der Schweiz und Südtirol – und auch darüber hinaus, 2027 zum Beispiel in Frankreich. Kein Weg ist uns zu weit.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Wo bekomme ich Tickets für die Shows?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Das ist je nach Veranstaltung unterschiedlich – manche Feste sind frei zugänglich, andere haben eigene Ticketstellen. Die Infos zum jeweiligen Abend findest du bei den <a href="#shows">Terminen</a> oder direkt beim Veranstalter.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Wie komme ich an ein Autogramm?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Ganz einfach per Post: Schick deinen Autogrammwunsch mit frankiertem Rückumschlag an „Autogrammwunsch Silvanas, Damaschkeweg 16, 48145 Münster“ – wir beantworten jede Fanpost persönlich. Oder du holst es dir live bei einem <a href="#shows">Konzert</a> ab.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Wo kann ich die neue Single hören?<span class="pm">+</span></div>
+        <div class="faq-a"><p>„Wie kannst du mich verlassen (Nur So! Remix)“ läuft überall im Stream: auf Spotify, Amazon Music, YouTube und allen gängigen Plattformen. Die Links findest du oben bei der <a href="#single">Single</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section id="newsletter" style="padding-top:40px">
+  <div class="wrap">
+    <div class="newsletter reveal">
+      <span class="kicker" style="justify-content:center">Bleib auf dem Laufenden</span>
+      <h2>Nichts mehr verpassen</h2>
+      <p>Neue Songs, Videopremieren, Termine – folgt uns, dann verpasst ihr nichts.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-grad" href="https://www.facebook.com/DieSilvanas/" target="_blank" rel="noopener">Auf Facebook folgen</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/diesilvanas/" target="_blank" rel="noopener">Auf Instagram folgen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo" aria-label="Silvanas">
+          <img src="logo-original.png" alt="Silvanas" style="height:42px;width:auto;display:block">
+        </a>
+        <p style="color:var(--muted);font-size:.9rem;margin-top:16px;max-width:280px">Schlagerpop mit Herz und Beat – André &amp; Friedhelm aus Münster.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Entdecken</h4>
+        <a href="#single">Musik</a><a href="#videos">Videos</a><a href="#ueber">Über uns</a><a href="#shows">Shows</a><a href="#shop">Shop</a><a href="#fans">Fans</a><a href="#booking">Buchung</a><a href="#faq">Häufige Fragen</a>
+      </div>
+      <div class="foot-col">
+        <h4>Folgt uns</h4>
+        <a href="https://www.facebook.com/DieSilvanas/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/diesilvanas/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/@Silvanasvideo/videos" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">Spotify</a>
+      </div>
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <a href="tel:+491713265036">+49 171 326 503 6</a>
+        <a href="mailto:info@diesilvanas.de">info@diesilvanas.de</a>
+        <a href="#fans">Fanpost &amp; Autogramme</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© 2026 Silvanas · André Kranz und Friedhelm Ralla GbR, Münster</span>
+      <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a> &nbsp;·&nbsp; <a href="#cookie-einstellungen">Cookie-Einstellungen</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Nach oben scrollen">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a0a08" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Nav-Zustand beim Scrollen + Nach-oben-Button
+const nav = document.getElementById('nav');
+const toTop = document.getElementById('toTop');
+addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 30);
+  toTop.classList.toggle('show', scrollY > 700);
+}, {passive:true});
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// Mobile Menü
+const burger = document.getElementById('burger');
+const links = document.getElementById('navLinks');
+burger.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// Scroll-Reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ===== Termine: EINE Datenliste – Sortierung, Monats-Gruppen, Kalender & Teilen laufen automatisch =====
+// Neuen Termin einfach als Zeile ergänzen (Reihenfolge egal, wird automatisch chronologisch sortiert;
+// vergangene Termine verschwinden von selbst).
+const EVENTS = [
+  {start:'2026-08-08', title:'Filsumer Schlager Event 2026', venue:'Gemeindezentrum Filsum, Rahausring 8–12, 26849 Filsum', flyer:'flyer/flyer-filsum.jpg'},
+  {start:'2026-08-21', title:'Benefiz Alpsteinstrassenfest', venue:'Alpsteinstrasse, 9464 Rüthi SG (Schweiz) · ab 17:00 Uhr', flyer:'flyer/flyer-alpstein.jpg'},
+  {start:'2026-08-22', end:'2026-08-23', title:'Fanfest Silvanas & Freunde 3.0', venue:'Salzhaus, Wangen an der Aare (Schweiz)', flyer:'flyer/flyer-fanfest-tag1.jpg'},
+  {start:'2026-09-12', title:'Schlagersause Kubacherhof', venue:'Kubacherhof, Hauptstraße 58, 35781 Weilburg-Kubach', flyer:'flyer/flyer-kubacherhof.jpg'},
+  {start:'2026-09-26', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-09-28', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-09-29', end:'2026-09-30', title:'15. Mega Deluxe Wellness-Musikwoche', venue:'Wellnesshotel liebes Rot-Flüh, Seestraße 26, 6673 Haldensee (Österreich)', flyer:'flyer/flyer-wellnesswoche.jpg'},
+  {start:'2026-10-01', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-10-03', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-10-05', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-10-08', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
+  {start:'2026-10-10', title:'Silvanas bei Senza Confini', venue:'Ort folgt'},
+  {start:'2026-10-16', title:'Schlagerstadl Fantreffen', venue:'Ailinger Mühle, 88427 Bad Schussenried', flyer:'flyer/flyer-schlagerstadl-fantreffen.jpg'},
+  {start:'2026-10-17', title:'SUNRISE-SchlagerStadl 2026', venue:'Mietingen', flyer:'flyer/flyer-sunrise-schlagerstadl.jpg'},
+  {start:'2026-10-31', title:'Silvanas zu Gast bei den Amadinos', venue:'Schweiz · Infos folgen', flyer:'flyer/flyer-amadinos.jpg'},
+  {start:'2026-12-19', title:'Silvanas & Sunrise', venue:'Hotel Clemens August, Burgstraße 54, 59387 Ascheberg-Davensberg', flyer:'flyer/flyer-sunrise-dezember.jpg'},
+  {start:'2027-03-07', title:'Silvanas in Frankreich', venue:'Grand Gala de la Volksmusik · Salle des Fêtes, Fessenheim (Frankreich)', flyer:'flyer/flyer-frankreich.jpg'},
+  {start:'2027-04-24', title:'Silvanas in der Gigelberghalle', venue:'Gigelberghalle, Jahnstraße 1, 88400 Biberach an der Riß'}
+];
+const SHARE_URL = 'https://www.silvanas.de/termine/';
+const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+const MONTHS_SHORT = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+const WEEKDAYS = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+
+function pDate(s){ const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
+function fmtICS(s){ return s.replaceAll('-',''); }
+function plusDay(s){ const dt = pDate(s); dt.setDate(dt.getDate()+1); return dt.toISOString().slice(0,10).replaceAll('-',''); }
+
+function gcalLink(ev){
+  const endEx = ev.end ? plusDay(ev.end) : plusDay(ev.start);
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent('Silvanas live: ' + ev.title)
+    + '&dates=' + fmtICS(ev.start) + '/' + endEx
+    + '&details=' + encodeURIComponent('Das Schlagerduo Silvanas live! Alle Infos: ' + SHARE_URL)
+    + '&location=' + encodeURIComponent(ev.venue || '');
+}
+function icsDownload(ev){
+  const endEx = ev.end ? plusDay(ev.end) : plusDay(ev.start);
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Silvanas//Termine//DE','BEGIN:VEVENT',
+    'UID:' + ev.start + '-' + ev.title.replace(/\W+/g,'') + '@silvanas.de',
+    'DTSTART;VALUE=DATE:' + fmtICS(ev.start),
+    'DTEND;VALUE=DATE:' + endEx,
+    'SUMMARY:Silvanas live: ' + ev.title,
+    'LOCATION:' + (ev.venue || ''),
+    'DESCRIPTION:Das Schlagerduo Silvanas live! Alle Infos: ' + SHARE_URL,
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+  a.download = 'silvanas-' + ev.start + '.ics';
+  a.click();
+}
+function shareText(ev){
+  const d = pDate(ev.start);
+  return 'Die Silvanas live: ' + ev.title + ' am ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + ' – ' + SHARE_URL;
+}
+function daysUntil(ev){
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.round((pDate(ev.start) - today) / 86400000);
+}
+
+function renderGigs(showAll){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const upcoming = EVENTS
+    .filter(ev => pDate(ev.end || ev.start) >= today)
+    .sort((a,b) => pDate(a.start) - pDate(b.start));
+  const list = showAll ? upcoming : upcoming.slice(0,6);
+  const box = document.getElementById('gigList');
+  box.innerHTML = '';
+  let lastMonth = '';
+  list.forEach(ev => {
+    const d = pDate(ev.start);
+    const monthKey = MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+    if (monthKey !== lastMonth) {
+      const div = document.createElement('div');
+      div.className = 'month-div';
+      div.textContent = monthKey;
+      box.appendChild(div);
+      lastMonth = monthKey;
+    }
+    const dateLabel = ev.end
+      ? String(d.getDate()).padStart(2,'0') + '.–' + String(pDate(ev.end).getDate()).padStart(2,'0') + '.'
+      : String(d.getDate()).padStart(2,'0');
+    const days = daysUntil(ev);
+    const countTxt = days === 0 ? 'Heute!' : days === 1 ? 'Morgen!' : 'Noch ' + days + ' Tage';
+    const el = document.createElement('article');
+    el.className = 'gig';
+    el.innerHTML =
+      '<div class="gig-head">' +
+        '<span class="date"><span class="d">' + dateLabel + '</span><span class="m">' + MONTHS_SHORT[d.getMonth()] + ' ' + d.getFullYear() + '</span><span class="wd">' + WEEKDAYS[d.getDay()] + '</span></span>' +
+        '<span><h3>' + ev.title + '</h3><span class="loc">' + (ev.venue || '') + '</span></span>' +
+        '<span class="toggle">Details</span>' +
+      '</div>' +
+      '<div class="gig-detail"><div class="gig-detail-inner">' +
+        '<div class="gig-meta">' +
+          '<span><b>Datum:</b> ' + WEEKDAYS[d.getDay()] + ', ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + (ev.end ? ' bis ' + pDate(ev.end).toLocaleDateString('de-DE') : '') + '</span>' +
+          '<span><b>Ort:</b> ' + (ev.venue || 'folgt') + '</span>' +
+          '<span class="gig-count">' + countTxt + '</span>' +
+        '</div>' +
+        (ev.flyer ? '<a class="gig-flyer" href="' + ev.flyer + '" target="_blank" rel="noopener"><img src="' + ev.flyer + '" alt="Veranstaltungs-Flyer: ' + ev.title + '" loading="lazy"><span>Flyer ansehen →</span></a>' : '') +
+        '<div class="gig-actions">' +
+          '<a class="act cal" target="_blank" rel="noopener" href="' + gcalLink(ev) + '">+ Google Kalender</a>' +
+          '<button class="act cal" data-ics>+ iCal / Outlook</button>' +
+          '<a class="act" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL) + '&quote=' + encodeURIComponent(shareText(ev)) + '">Teilen: Facebook</a>' +
+          '<a class="act" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(shareText(ev)) + '">WhatsApp</a>' +
+          '<a class="act" href="mailto:?subject=' + encodeURIComponent('Silvanas live: ' + ev.title) + '&body=' + encodeURIComponent(shareText(ev)) + '">E-Mail</a>' +
+        '</div>' +
+      '</div></div>';
+    el.querySelector('.gig-head').addEventListener('click', () => el.classList.toggle('open'));
+    el.querySelector('[data-ics]').addEventListener('click', e => { e.stopPropagation(); icsDownload(ev); });
+    box.appendChild(el);
+  });
+  const moreBtn = document.getElementById('gigMore');
+  moreBtn.style.display = upcoming.length > 6 ? '' : 'none';
+  moreBtn.textContent = showAll ? 'Weniger anzeigen' : 'Alle ' + upcoming.length + ' Termine anzeigen';
+}
+let gigsExpanded = false;
+renderGigs(false);
+document.getElementById('gigMore').addEventListener('click', () => { gigsExpanded = !gigsExpanded; renderGigs(gigsExpanded); });
+
+// Videos: Klick lädt den YouTube-Player (datenschutzfreundliche Variante ohne Cookies vor dem Klick)
+document.querySelectorAll('.video-card[data-yt]').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.yt;
+    const frame = card.querySelector('.video-frame');
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="Silvanas Musikvideo" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  }, {once:true});
+});
+
+// ===== Event-Popup: zeigt automatisch den nächsten Termin mit Countdown =====
+(function(){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const upcoming = EVENTS.filter(ev => pDate(ev.end || ev.start) >= today).sort((a,b) => pDate(a.start) - pDate(b.start));
+  if (!upcoming.length || sessionStorage.getItem('silvanasPromo')) return;
+  const ev = upcoming[0];
+  const d = pDate(ev.start);
+  const dateTxt = WEEKDAYS[d.getDay()] + ', ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear();
+  const dauerTxt = ev.end ? 'Zwei Tage (' + String(d.getDate()).padStart(2,'0') + '.–' + String(pDate(ev.end).getDate()).padStart(2,'0') + '.' + String(pDate(ev.end).getMonth()+1).padStart(2,'0') + '.)' : 'Ein Abend live';
+  const el = document.createElement('div');
+  el.className = 'promo-pop';
+  el.setAttribute('role','dialog');
+  el.setAttribute('aria-label','Nächster Live-Termin');
+  el.innerHTML =
+    '<button class="promo-close" aria-label="Schließen">✕</button>' +
+    (ev.flyer ? '<a class="promo-flyer" href="' + ev.flyer + '" target="_blank" rel="noopener"><img src="' + ev.flyer + '" alt="Flyer: ' + ev.title + '"></a>' : '') +
+    '<div>' +
+      '<span class="promo-kicker">Nächster Live-Termin</span>' +
+      '<div class="promo-title">' + ev.title + '</div>' +
+      '<div class="promo-meta"><b>' + dateTxt + '</b> · ' + dauerTxt + '<br>' + (ev.venue || '') + '</div>' +
+      '<div class="promo-count">' +
+        '<div class="promo-box"><div class="n" data-ct="t">0</div><div class="l">Tage</div></div>' +
+        '<div class="promo-box"><div class="n" data-ct="h">0</div><div class="l">Std</div></div>' +
+        '<div class="promo-box"><div class="n" data-ct="m">0</div><div class="l">Min</div></div>' +
+        '<div class="promo-box"><div class="n" data-ct="s">0</div><div class="l">Sek</div></div>' +
+      '</div>' +
+      '<div class="promo-ctas">' +
+        '<a class="btn btn-grad promo-cta" href="#shows">Alle Termine</a>' +
+        '<a class="btn btn-ghost" href="' + gcalLink(ev) + '" target="_blank" rel="noopener">+ Kalender</a>' +
+      '</div>' +
+    '</div>';
+  const veil = document.createElement('div');
+  veil.className = 'promo-veil';
+  veil.appendChild(el);
+  const close = () => { veil.classList.remove('show'); sessionStorage.setItem('silvanasPromo','1'); clearInterval(iv); setTimeout(() => veil.remove(), 450); };
+  const schedulePromo = (delay) => setTimeout(() => {
+    document.body.appendChild(veil);
+    requestAnimationFrame(() => requestAnimationFrame(() => veil.classList.add('show')));
+    veil.addEventListener('click', e => { if (e.target === veil) close(); });
+    el.querySelector('.promo-close').addEventListener('click', close);
+    el.querySelector('.promo-cta').addEventListener('click', close);
+  }, delay);
+  // Popup erst nach der Cookie-Entscheidung zeigen (nie zwei Fenster gleichzeitig)
+  if (localStorage.getItem('silvanasConsent')) { schedulePromo(10000); }
+  else { window.addEventListener('silvanas-consent', () => schedulePromo(6000), {once:true}); }
+  const target = pDate(ev.start).getTime();
+  const box = {};
+  el.querySelectorAll('[data-ct]').forEach(b => box[b.dataset.ct] = b);
+  function tick(){
+    const diff = target - Date.now();
+    if (diff <= 0) { el.querySelector('.promo-count').innerHTML = '<div class="promo-heute">Heute live!</div>'; clearInterval(iv); return; }
+    box.t.textContent = Math.floor(diff / 86400000);
+    box.h.textContent = String(Math.floor(diff / 3600000) % 24).padStart(2,'0');
+    box.m.textContent = String(Math.floor(diff / 60000) % 60).padStart(2,'0');
+    box.s.textContent = String(Math.floor(diff / 1000) % 60).padStart(2,'0');
+  }
+  const iv = setInterval(tick, 1000); tick();
+})();
+
+// ===== Cookie-Banner + Google Analytics (lädt NUR nach Zustimmung) =====
+function loadGA(){
+  if (window._gaLoaded) return;
+  window._gaLoaded = true;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FV0QF0ZKDV';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-FV0QF0ZKDV');
+}
+function showCookieBar(){
+  const bar = document.createElement('div');
+  bar.className = 'cookie-bar';
+  bar.innerHTML =
+    '<p>Wir nutzen Cookies: notwendige für den Betrieb der Seite und – nur mit deiner Zustimmung – Statistik (Google Analytics), damit wir wissen, was euch gefällt. <a href="datenschutz.html">Mehr in der Datenschutzerklärung</a></p>' +
+    '<div class="cookie-btns">' +
+      '<button class="btn btn-grad" data-c="all">Alle akzeptieren</button>' +
+      '<button class="btn btn-ghost" data-c="essential">Nur notwendige</button>' +
+    '</div>';
+  document.body.appendChild(bar);
+  requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.add('show')));
+  bar.querySelectorAll('[data-c]').forEach(b => b.addEventListener('click', () => {
+    localStorage.setItem('silvanasConsent', b.dataset.c);
+    if (b.dataset.c === 'all') loadGA();
+    bar.classList.remove('show');
+    setTimeout(() => bar.remove(), 400);
+    window.dispatchEvent(new Event('silvanas-consent'));
+  }));
+}
+const consent = localStorage.getItem('silvanasConsent');
+if (consent === 'all') loadGA();
+else if (!consent) showCookieBar();
+// Fußzeilen-Link „Cookie-Einstellungen": Wahl zurücksetzen und Banner erneut zeigen
+document.querySelectorAll('a[href="#cookie-einstellungen"]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  localStorage.removeItem('silvanasConsent');
+  if (!document.querySelector('.cookie-bar')) showCookieBar();
+}));
+
+// FAQ-Akkordeon (immer nur eine Frage offen)
+document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => {
+  const item = q.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq.open').forEach(f => f.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}));
+
+// FAQ-Auszeichnung für Google (FAQPage-Schema)
+const faqData = [...document.querySelectorAll('.faq')].map(f => ({
+  '@type': 'Question',
+  'name': f.querySelector('.faq-q').textContent.replace('+','').trim(),
+  'acceptedAnswer': { '@type': 'Answer', 'text': f.querySelector('.faq-a p').textContent.trim() }
+}));
+const ld = document.createElement('script');
+ld.type = 'application/ld+json';
+ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqData });
+document.head.appendChild(ld);
+
+// Zähler-Animation
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, plus = target >= 15 ? '+' : '';
+    let cur = 0;
+    const step = () => {
+      cur += Math.max(1, Math.round(target/30));
+      if (cur >= target) { el.textContent = target + plus; return; }
+      el.textContent = cur; requestAnimationFrame(step);
+    };
+    step(); cio.unobserve(el);
+  });
+}, {threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+</script>
+</body>
+</html>
