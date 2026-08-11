@@ -273,6 +273,8 @@ section{position:relative;padding:110px 0;z-index:1}
 .act{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.82rem;font-weight:500;transition:.25s;background:rgba(255,255,255,.03);cursor:pointer;color:var(--text)}
 .act:hover{border-color:var(--champagne);color:var(--champagne);transform:translateY(-2px)}
 .act.cal{border-color:rgba(255,46,99,.4)}
+.act.tix{background:var(--grad);border:none;color:#14060b;font-weight:700}
+.act.tix:hover{color:#14060b;filter:brightness(1.1);transform:translateY(-2px)}
 .gigs-more{text-align:center;margin-top:36px}
 /* Veranstalter-CTA in der Termin-Sektion */
 .gig-cta{margin-top:44px;background:linear-gradient(135deg,var(--panel-2),var(--panel));border:1px solid rgba(255,46,99,.35);border-radius:calc(var(--radius) + 6px);padding:44px 48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
@@ -798,6 +800,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // ===== Termine: EINE Datenliste – Sortierung, Monats-Gruppen, Kalender & Teilen laufen automatisch =====
 // Neuen Termin einfach als Zeile ergänzen (Reihenfolge egal, wird automatisch chronologisch sortiert;
 // vergangene Termine verschwinden von selbst).
+// Optional pro Termin: tickets:'https://…' – dann erscheint automatisch ein "Tickets kaufen"-Button
+// beim Termin und im Countdown-Fenster (z. B. Eventfrog-Link).
 const EVENTS = [
   {start:'2026-08-08', title:'Filsumer Schlager Event 2026', venue:'Gemeindezentrum Filsum, Rahausring 8–12, 26849 Filsum', flyer:'flyer/flyer-filsum.jpg'},
   {start:'2026-08-21', title:'Benefiz Alpsteinstrassenfest', venue:'Alpsteinstrasse, 9464 Rüthi SG (Schweiz) · ab 17:00 Uhr', flyer:'flyer/flyer-alpstein.jpg'},
@@ -900,6 +904,7 @@ function renderGigs(showAll){
         '</div>' +
         (ev.flyer ? '<a class="gig-flyer" href="' + ev.flyer + '" target="_blank" rel="noopener"><img src="' + ev.flyer + '" alt="Veranstaltungs-Flyer: ' + ev.title + '" loading="lazy"><span>Flyer ansehen →</span></a>' : '') +
         '<div class="gig-actions">' +
+          (ev.tickets ? '<a class="act tix" target="_blank" rel="noopener" href="' + ev.tickets + '">🎟 Tickets kaufen</a>' : '') +
           '<a class="act cal" target="_blank" rel="noopener" href="' + gcalLink(ev) + '">+ Google Kalender</a>' +
           '<button class="act cal" data-ics>+ iCal / Outlook</button>' +
           '<a class="act" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL) + '&quote=' + encodeURIComponent(shareText(ev)) + '">Teilen: Facebook</a>' +
@@ -955,8 +960,11 @@ document.querySelectorAll('.video-card[data-yt]').forEach(card => {
         '<div class="promo-box"><div class="n" data-ct="s">0</div><div class="l">Sek</div></div>' +
       '</div>' +
       '<div class="promo-ctas">' +
-        '<a class="btn btn-grad promo-cta" href="#shows">Alle Termine</a>' +
-        '<a class="btn btn-ghost" href="' + gcalLink(ev) + '" target="_blank" rel="noopener">+ Kalender</a>' +
+        (ev.tickets
+          ? '<a class="btn btn-grad" href="' + ev.tickets + '" target="_blank" rel="noopener">🎟 Tickets sichern</a>' +
+            '<a class="btn btn-ghost promo-cta" href="#shows">Alle Termine</a>'
+          : '<a class="btn btn-grad promo-cta" href="#shows">Alle Termine</a>' +
+            '<a class="btn btn-ghost" href="' + gcalLink(ev) + '" target="_blank" rel="noopener">+ Kalender</a>') +
       '</div>' +
     '</div>';
   const veil = document.createElement('div');
