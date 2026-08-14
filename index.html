@@ -861,7 +861,7 @@ function shareText(ev){
   const d = pDate(ev.start);
   return 'Die Silvanas live: ' + ev.title + ' am ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + ' – ' + terminLink(ev);
 }
-function terminLink(ev){ return 'https://www.silvanas.de/#t-' + ev.start; }
+function terminLink(ev){ return 'https://www.silvanas.de/?t=' + ev.start; }
 function daysUntil(ev){
   const today = new Date(); today.setHours(0,0,0,0);
   return Math.round((pDate(ev.start) - today) / 86400000);
@@ -928,9 +928,10 @@ let gigsExpanded = false;
 renderGigs(false);
 document.getElementById('gigMore').addEventListener('click', () => { gigsExpanded = !gigsExpanded; renderGigs(gigsExpanded); });
 
-// Geteilter Termin-Link (#t-JJJJ-MM-TT): genau diesen Termin aufklappen, hinscrollen, hervorheben
-if (location.hash.indexOf('#t-') === 0) {
-  const gesucht = location.hash.slice(1);
+// Geteilter Termin-Link (?t=JJJJ-MM-TT oder #t-JJJJ-MM-TT): genau diesen Termin aufklappen, hinscrollen, hervorheben
+const geteilterTermin = new URLSearchParams(location.search).get('t') || (location.hash.indexOf('#t-') === 0 ? location.hash.slice(3) : null);
+if (geteilterTermin) {
+  const gesucht = 't-' + geteilterTermin;
   if (!document.getElementById(gesucht)) { gigsExpanded = true; renderGigs(true); }
   const ziel = document.getElementById(gesucht);
   if (ziel) {
