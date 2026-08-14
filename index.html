@@ -275,6 +275,7 @@ section{position:relative;padding:110px 0;z-index:1}
 .act.cal{border-color:rgba(255,46,99,.4)}
 .act.tix{background:var(--grad);border:none;color:#14060b;font-weight:700}
 .act.tix:hover{color:#14060b;filter:brightness(1.1);transform:translateY(-2px)}
+.gig.geteilt{border-color:rgba(232,199,123,.8);box-shadow:0 0 0 2px rgba(232,199,123,.35),0 12px 40px rgba(255,46,99,.15)}
 .gigs-more{text-align:center;margin-top:36px}
 /* Veranstalter-CTA in der Termin-Sektion */
 .gig-cta{margin-top:44px;background:linear-gradient(135deg,var(--panel-2),var(--panel));border:1px solid rgba(255,46,99,.35);border-radius:calc(var(--radius) + 6px);padding:44px 48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
@@ -858,8 +859,9 @@ function icsDownload(ev){
 }
 function shareText(ev){
   const d = pDate(ev.start);
-  return 'Die Silvanas live: ' + ev.title + ' am ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + ' – ' + SHARE_URL;
+  return 'Die Silvanas live: ' + ev.title + ' am ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + ' – ' + terminLink(ev);
 }
+function terminLink(ev){ return 'https://www.silvanas.de/#t-' + ev.start; }
 function daysUntil(ev){
   const today = new Date(); today.setHours(0,0,0,0);
   return Math.round((pDate(ev.start) - today) / 86400000);
@@ -891,6 +893,7 @@ function renderGigs(showAll){
     const countTxt = days === 0 ? 'Heute!' : days === 1 ? 'Morgen!' : 'Noch ' + days + ' Tage';
     const el = document.createElement('article');
     el.className = 'gig';
+    el.id = 't-' + ev.start;
     el.innerHTML =
       '<div class="gig-head">' +
         '<span class="date"><span class="d">' + dateLabel + '</span><span class="m">' + MONTHS_SHORT[d.getMonth()] + ' ' + d.getFullYear() + '</span><span class="wd">' + WEEKDAYS[d.getDay()] + '</span></span>' +
@@ -908,7 +911,7 @@ function renderGigs(showAll){
           (ev.tickets ? '<a class="act tix" target="_blank" rel="noopener" href="' + ev.tickets + '">🎟 Tickets kaufen</a>' : '') +
           '<a class="act cal" target="_blank" rel="noopener" href="' + gcalLink(ev) + '">+ Google Kalender</a>' +
           '<button class="act cal" data-ics>+ iCal / Outlook</button>' +
-          '<a class="act" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL) + '&quote=' + encodeURIComponent(shareText(ev)) + '">Teilen: Facebook</a>' +
+          '<a class="act" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(terminLink(ev)) + '&quote=' + encodeURIComponent(shareText(ev)) + '">Teilen: Facebook</a>' +
           '<a class="act" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(shareText(ev)) + '">WhatsApp</a>' +
           '<a class="act" href="mailto:?subject=' + encodeURIComponent('Silvanas live: ' + ev.title) + '&body=' + encodeURIComponent(shareText(ev)) + '">E-Mail</a>' +
         '</div>' +
@@ -924,6 +927,17 @@ function renderGigs(showAll){
 let gigsExpanded = false;
 renderGigs(false);
 document.getElementById('gigMore').addEventListener('click', () => { gigsExpanded = !gigsExpanded; renderGigs(gigsExpanded); });
+
+// Geteilter Termin-Link (#t-JJJJ-MM-TT): genau diesen Termin aufklappen, hinscrollen, hervorheben
+if (location.hash.indexOf('#t-') === 0) {
+  const gesucht = location.hash.slice(1);
+  if (!document.getElementById(gesucht)) { gigsExpanded = true; renderGigs(true); }
+  const ziel = document.getElementById(gesucht);
+  if (ziel) {
+    ziel.classList.add('open', 'geteilt');
+    setTimeout(() => ziel.scrollIntoView({behavior: 'smooth', block: 'center'}), 400);
+  }
+}
 
 // Videos: Klick lädt den YouTube-Player (datenschutzfreundliche Variante ohne Cookies vor dem Klick)
 document.querySelectorAll('.video-card[data-yt]').forEach(card => {
