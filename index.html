@@ -935,7 +935,9 @@ if (location.hash.indexOf('#t-') === 0) {
   const ziel = document.getElementById(gesucht);
   if (ziel) {
     ziel.classList.add('open', 'geteilt');
-    setTimeout(() => ziel.scrollIntoView({behavior: 'smooth', block: 'center'}), 400);
+    const hinspringen = () => { const z = document.getElementById(gesucht); if (z) z.scrollIntoView({block: 'center'}); };
+    setTimeout(hinspringen, 600);
+    setTimeout(hinspringen, 1800);
   }
 }
 
