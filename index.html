@@ -808,7 +808,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const EVENTS = [
   {start:'2026-08-08', title:'Filsumer Schlager Event 2026', venue:'Gemeindezentrum Filsum, Rahausring 8–12, 26849 Filsum', flyer:'flyer/flyer-filsum.jpg'},
   {start:'2026-08-21', title:'Benefiz Alpsteinstrassenfest', venue:'Alpsteinstrasse, 9464 Rüthi SG (Schweiz) · ab 17:00 Uhr', flyer:'flyer/flyer-alpstein.jpg'},
-  {start:'2026-08-22', end:'2026-08-23', title:'Fanfest Silvanas & Freunde 3.0', venue:'Salzhaus, Wangen an der Aare (Schweiz)', flyer:'flyer/flyer-fanfest-tag1.jpg'},
+  {start:'2026-08-22', end:'2026-08-23', title:'Fanfest Silvanas & Freunde 3.0', venue:'Salzhaus, Wangen an der Aare (Schweiz)', flyer:'flyer/flyer-fanfest-tag1.jpg', flyerText:'Flyer Samstag →', flyer2:'flyer/flyer-fanfest-tag2.jpg', flyer2Text:'Flyer Sonntag →'},
   {start:'2026-09-12', title:'Schlagersause Kubacherhof', venue:'Kubacherhof, Hauptstraße 58, 35781 Weilburg-Kubach', flyer:'flyer/flyer-kubacherhof.jpg'},
   {start:'2026-09-26', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
   {start:'2026-09-28', title:'Silvanas im Kulturhaus', venue:'Kulturhaus, Serfaus-Fiss-Ladis · Tirol', flyer:'flyer/flyer-serfaus.jpg'},
@@ -908,7 +908,8 @@ function renderGigs(showAll){
           '<span><b>Ort:</b> ' + (ev.venue || 'folgt') + '</span>' +
           '<span class="gig-count">' + countTxt + '</span>' +
         '</div>' +
-        (ev.flyer ? '<a class="gig-flyer" href="' + ev.flyer + '" target="_blank" rel="noopener"><img src="' + ev.flyer + '" alt="Veranstaltungs-Flyer: ' + ev.title + '" loading="lazy"><span>Flyer ansehen →</span></a>' : '') +
+        (ev.flyer ? '<a class="gig-flyer" href="' + ev.flyer + '" target="_blank" rel="noopener"><img src="' + ev.flyer + '" alt="Veranstaltungs-Flyer: ' + ev.title + '" loading="lazy"><span>' + (ev.flyerText || 'Flyer ansehen →') + '</span></a>' : '') +
+        (ev.flyer2 ? '<a class="gig-flyer" href="' + ev.flyer2 + '" target="_blank" rel="noopener"><img src="' + ev.flyer2 + '" alt="Veranstaltungs-Flyer: ' + ev.title + '" loading="lazy"><span>' + (ev.flyer2Text || 'Flyer ansehen →') + '</span></a>' : '') +
         '<div class="gig-actions">' +
           (ev.tickets ? '<a class="act tix" target="_blank" rel="noopener" href="' + ev.tickets + '">🎟 Tickets kaufen</a>' : '') +
           '<a class="act cal" target="_blank" rel="noopener" href="' + gcalLink(ev) + '">+ Google Kalender</a>' +
