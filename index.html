@@ -939,10 +939,12 @@ if (geteilterTermin) {
   if (!document.getElementById(gesucht)) { gigsExpanded = true; renderGigs(true); }
   const ziel = document.getElementById(gesucht);
   if (ziel) {
+    // Chrome stellt sonst die alte Scrollposition wieder her und überschreibt den Sprung
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     ziel.classList.add('open', 'geteilt');
     const hinspringen = () => { const z = document.getElementById(gesucht); if (z) z.scrollIntoView({block: 'center'}); };
-    setTimeout(hinspringen, 600);
-    setTimeout(hinspringen, 1800);
+    [300, 900, 1800, 3000].forEach(ms => setTimeout(hinspringen, ms));
+    window.addEventListener('load', () => setTimeout(hinspringen, 500), {once: true});
   }
 }
 
