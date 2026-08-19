@@ -960,6 +960,8 @@ document.querySelectorAll('.video-card[data-yt]').forEach(card => {
   const today = new Date(); today.setHours(0,0,0,0);
   const upcoming = EVENTS.filter(ev => pDate(ev.end || ev.start) >= today).sort((a,b) => pDate(a.start) - pDate(b.start));
   if (!upcoming.length || sessionStorage.getItem('silvanasPromo')) return;
+  // Bei geteiltem Termin-Link (?t=…) kein Popup: der geteilte Termin soll frei sichtbar bleiben
+  if (new URLSearchParams(location.search).get('t') || location.hash.indexOf('#t-') === 0) return;
   const ev = upcoming[0];
   const d = pDate(ev.start);
   const dateTxt = WEEKDAYS[d.getDay()] + ', ' + String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear();
