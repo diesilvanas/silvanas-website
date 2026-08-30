@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /presse/
 
 Sitemap: https://www.silvanas.de/sitemap.xml
