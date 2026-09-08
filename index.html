@@ -365,6 +365,12 @@ section{position:relative;padding:110px 0;z-index:1}
 .nl-form input{flex:1 1 190px;min-width:0;padding:15px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text);font-family:'Outfit';font-size:.95rem;outline:none;transition:.3s}
 .nl-form button{flex:1 1 100%;justify-content:center;font-family:'Outfit',sans-serif}
 .nl-hinweis{font-size:.8rem;color:#8a8698;margin:18px auto 0;max-width:520px;line-height:1.55}
+.nl-meldung{max-width:520px;margin:22px auto 0;padding:20px 26px;border-radius:var(--radius);
+  font-size:.98rem;line-height:1.6;text-align:center}
+.nl-meldung[hidden]{display:none}
+.nl-ok{background:rgba(255,176,58,.09);border:1px solid rgba(255,176,58,.35);color:var(--text)}
+.nl-ok strong{color:var(--champagne);display:block;margin-bottom:6px;font-size:1.15rem}
+.nl-fehler{background:rgba(255,46,99,.08);border:1px solid rgba(255,46,99,.3);color:#ffd9e2}
 .nl-hinweis a{color:var(--champagne);text-decoration:underline;text-underline-offset:2px}
 .nl-oder{color:#6f6b7d;font-size:.85rem;margin:34px 0 16px;letter-spacing:.04em}
 .nl-form input:focus{border-color:var(--champagne)}
@@ -738,7 +744,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
       <p>Neue Termine, neue Songs, Neues von uns – ein paar Mal im Jahr direkt in euer Postfach.
          Und wenn wir in eurer Nähe spielen, erfahrt ihr es zuerst.</p>
 
-      <form class="nl-form"
+      <form class="nl-form" id="nl-form"
             action="https://silvanas.us7.list-manage.com/subscribe/post?u=6a43e55385e399ef42042a8a1&amp;id=42ef3370aa"
             method="post" target="_blank" rel="noopener">
         <input type="text" name="FNAME" placeholder="Vorname" aria-label="Vorname" autocomplete="given-name">
@@ -749,7 +755,9 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
         </div>
       </form>
 
-      <p class="nl-hinweis">Ihr bekommt eine Mail zur Bestätigung – erst danach seid ihr dabei.
+      <p class="nl-meldung" id="nl-meldung" hidden></p>
+
+      <p class="nl-hinweis" id="nl-hinweis">Ihr bekommt eine Mail zur Bestätigung – erst danach seid ihr dabei.
          Abmelden könnt ihr euch jederzeit über den Link in jeder Nachricht.
          Wie wir mit euren Daten umgehen, steht in der
          <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
@@ -1124,6 +1132,59 @@ const cio = new IntersectionObserver(entries => {
   });
 }, {threshold:.6});
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+</script>
+
+<script>
+/* Newsletter-Anmeldung ohne Sprung zu Mailchimp.
+   Faellt ohne JavaScript auf das normale Absenden zurueck. */
+(function(){
+  var f = document.getElementById('nl-form');
+  if(!f || !window.URLSearchParams) return;
+  var meldung = document.getElementById('nl-meldung');
+  var hinweis = document.getElementById('nl-hinweis');
+  f.addEventListener('submit', function(e){
+    var feld = f.querySelector('[name=EMAIL]');
+    if(!feld.value.trim() || !feld.checkValidity()) return;   /* Browser meldet selbst */
+    e.preventDefault();
+    var knopf = f.querySelector('button');
+    var beschriftung = knopf.textContent;
+    knopf.disabled = true; knopf.textContent = 'Einen Moment …';
+    var name = 'nlcb' + Date.now();
+    var s = document.createElement('script');
+    function aufraeumen(){ try{ delete window[name]; }catch(x){ window[name] = undefined; }
+                           if(s.parentNode) s.parentNode.removeChild(s); }
+    window[name] = function(antwort){
+      knopf.disabled = false; knopf.textContent = beschriftung;
+      meldung.hidden = false;
+      if(antwort && antwort.result === 'success'){
+        f.hidden = true; hinweis.hidden = true;
+        meldung.className = 'nl-meldung nl-ok';
+        meldung.innerHTML = '<strong>Fast geschafft!</strong>' +
+          'Wir haben euch eine Mail geschickt. Klickt darin einmal auf den Bestätigungslink – ' +
+          'dann seid ihr dabei. Schaut zur Sicherheit auch im Spam-Ordner nach.';
+      } else {
+        var m = ((antwort && antwort.msg) || '').toLowerCase();
+        meldung.className = 'nl-meldung nl-fehler';
+        if(m.indexOf('already subscribed') > -1)
+          meldung.textContent = 'Diese Adresse ist schon angemeldet – ihr seid also längst dabei.';
+        else if(m.indexOf('invalid') > -1)
+          meldung.textContent = 'Diese E-Mail-Adresse sieht nicht ganz richtig aus. Mögt ihr sie noch einmal prüfen?';
+        else
+          meldung.textContent = 'Das hat gerade nicht geklappt. Versucht es bitte später noch einmal – oder schreibt uns direkt.';
+      }
+      aufraeumen();
+    };
+    s.onerror = function(){
+      knopf.disabled = false; knopf.textContent = beschriftung;
+      meldung.hidden = false; meldung.className = 'nl-meldung nl-fehler';
+      meldung.textContent = 'Das hat gerade nicht geklappt. Versucht es bitte später noch einmal.';
+      aufraeumen();
+    };
+    s.src = f.action.replace('/post?', '/post-json?') + '&' +
+            new URLSearchParams(new FormData(f)).toString() + '&c=' + name;
+    document.body.appendChild(s);
+  });
+})();
 </script>
 </body>
 </html>
