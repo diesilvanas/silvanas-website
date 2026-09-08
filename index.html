@@ -1134,57 +1134,5 @@ const cio = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 </script>
 
-<script>
-/* Newsletter-Anmeldung ohne Sprung zu Mailchimp.
-   Faellt ohne JavaScript auf das normale Absenden zurueck. */
-(function(){
-  var f = document.getElementById('nl-form');
-  if(!f || !window.URLSearchParams) return;
-  var meldung = document.getElementById('nl-meldung');
-  var hinweis = document.getElementById('nl-hinweis');
-  f.addEventListener('submit', function(e){
-    var feld = f.querySelector('[name=EMAIL]');
-    if(!feld.value.trim() || !feld.checkValidity()) return;   /* Browser meldet selbst */
-    e.preventDefault();
-    var knopf = f.querySelector('button');
-    var beschriftung = knopf.textContent;
-    knopf.disabled = true; knopf.textContent = 'Einen Moment …';
-    var name = 'nlcb' + Date.now();
-    var s = document.createElement('script');
-    function aufraeumen(){ try{ delete window[name]; }catch(x){ window[name] = undefined; }
-                           if(s.parentNode) s.parentNode.removeChild(s); }
-    window[name] = function(antwort){
-      knopf.disabled = false; knopf.textContent = beschriftung;
-      meldung.hidden = false;
-      if(antwort && antwort.result === 'success'){
-        f.hidden = true; hinweis.hidden = true;
-        meldung.className = 'nl-meldung nl-ok';
-        meldung.innerHTML = '<strong>Fast geschafft!</strong>' +
-          'Wir haben euch eine Mail geschickt. Klickt darin einmal auf den Bestätigungslink – ' +
-          'dann seid ihr dabei. Schaut zur Sicherheit auch im Spam-Ordner nach.';
-      } else {
-        var m = ((antwort && antwort.msg) || '').toLowerCase();
-        meldung.className = 'nl-meldung nl-fehler';
-        if(m.indexOf('already subscribed') > -1)
-          meldung.textContent = 'Diese Adresse ist schon angemeldet – ihr seid also längst dabei.';
-        else if(m.indexOf('invalid') > -1)
-          meldung.textContent = 'Diese E-Mail-Adresse sieht nicht ganz richtig aus. Mögt ihr sie noch einmal prüfen?';
-        else
-          meldung.textContent = 'Das hat gerade nicht geklappt. Versucht es bitte später noch einmal – oder schreibt uns direkt.';
-      }
-      aufraeumen();
-    };
-    s.onerror = function(){
-      knopf.disabled = false; knopf.textContent = beschriftung;
-      meldung.hidden = false; meldung.className = 'nl-meldung nl-fehler';
-      meldung.textContent = 'Das hat gerade nicht geklappt. Versucht es bitte später noch einmal.';
-      aufraeumen();
-    };
-    s.src = f.action.replace('/post?', '/post-json?') + '&' +
-            new URLSearchParams(new FormData(f)).toString() + '&c=' + name;
-    document.body.appendChild(s);
-  });
-})();
-</script>
 </body>
 </html>
