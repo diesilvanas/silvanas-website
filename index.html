@@ -361,8 +361,12 @@ section{position:relative;padding:110px 0;z-index:1}
 .newsletter{text-align:center;max-width:640px;margin:0 auto}
 .newsletter h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
 .newsletter p{color:var(--muted);margin-bottom:30px}
-.nl-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
-.nl-form input{flex:1;padding:15px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text);font-family:'Outfit';font-size:.95rem;outline:none;transition:.3s}
+.nl-form{display:flex;flex-wrap:wrap;gap:12px;max-width:520px;margin:0 auto;position:relative}
+.nl-form input{flex:1 1 190px;min-width:0;padding:15px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text);font-family:'Outfit';font-size:.95rem;outline:none;transition:.3s}
+.nl-form button{flex:1 1 100%;justify-content:center;font-family:'Outfit',sans-serif}
+.nl-hinweis{font-size:.8rem;color:#8a8698;margin:18px auto 0;max-width:520px;line-height:1.55}
+.nl-hinweis a{color:var(--champagne);text-decoration:underline;text-underline-offset:2px}
+.nl-oder{color:#6f6b7d;font-size:.85rem;margin:34px 0 16px;letter-spacing:.04em}
 .nl-form input:focus{border-color:var(--champagne)}
 .nl-form input::placeholder{color:#6f6b7d}
 
@@ -731,9 +735,28 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
     <div class="newsletter reveal">
       <span class="kicker" style="justify-content:center">Bleib auf dem Laufenden</span>
       <h2>Nichts mehr verpassen</h2>
-      <p>Neue Songs, Videopremieren, Termine – folgt uns, dann verpasst ihr nichts.</p>
+      <p>Neue Termine, neue Songs, Neues von uns – ein paar Mal im Jahr direkt in euer Postfach.
+         Und wenn wir in eurer Nähe spielen, erfahrt ihr es zuerst.</p>
+
+      <form class="nl-form"
+            action="https://silvanas.us7.list-manage.com/subscribe/post?u=6a43e55385e399ef42042a8a1&amp;id=42ef3370aa"
+            method="post" target="_blank" rel="noopener">
+        <input type="text" name="FNAME" placeholder="Vorname" aria-label="Vorname" autocomplete="given-name">
+        <input type="email" name="EMAIL" placeholder="E-Mail-Adresse" required aria-label="E-Mail-Adresse" autocomplete="email">
+        <button type="submit" class="btn btn-grad">Anmelden</button>
+        <div style="position:absolute;left:-5000px" aria-hidden="true">
+          <input type="text" name="b_6a43e55385e399ef42042a8a1_42ef3370aa" tabindex="-1" value="" autocomplete="off">
+        </div>
+      </form>
+
+      <p class="nl-hinweis">Ihr bekommt eine Mail zur Bestätigung – erst danach seid ihr dabei.
+         Abmelden könnt ihr euch jederzeit über den Link in jeder Nachricht.
+         Wie wir mit euren Daten umgehen, steht in der
+         <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+
+      <p class="nl-oder">Lieber mitlesen statt Post bekommen?</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-grad" href="https://www.facebook.com/DieSilvanas/" target="_blank" rel="noopener">Auf Facebook folgen</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/DieSilvanas/" target="_blank" rel="noopener">Auf Facebook folgen</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/diesilvanas/" target="_blank" rel="noopener">Auf Instagram folgen</a>
       </div>
     </div>
