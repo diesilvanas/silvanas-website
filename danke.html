@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast geschafft – Die Silvanas</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --ink:#0a0a12;
+  --panel:#12121d;
+  --panel-2:#181828;
+  --line:rgba(255,255,255,.08);
+  --text:#f4f2ee;
+  --muted:#a7a3b3;
+  --heart:#ff2e63;
+  --gold:#ffb03a;
+  --champagne:#e8c77b;
+  --grad:linear-gradient(90deg,#ff2e63 0%,#ff7038 55%,#ffb03a 100%);
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:var(--ink);color:var(--text);
+  font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  display:flex;align-items:center;justify-content:center;padding:32px;position:relative;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(1100px 600px at 15% -10%, rgba(255,46,99,.16), transparent 60%),
+             radial-gradient(900px 520px at 90% 10%, rgba(255,176,58,.10), transparent 62%)}
+.karte{position:relative;z-index:1;max-width:620px;text-align:center}
+.logo{width:210px;margin:0 auto 44px;display:block}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--champagne);font-weight:600;margin-bottom:18px}
+.kicker::before{content:'';width:26px;height:1px;background:var(--champagne)}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin-bottom:22px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{color:var(--muted);font-size:1.06rem;line-height:1.7;margin-bottom:16px}
+p strong{color:var(--text);font-weight:600}
+.spam{font-size:.92rem;color:#7d798c;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border-radius:999px;
+  font-weight:600;font-size:.96rem;transition:.3s;text-decoration:none;margin-top:34px;
+  background:var(--grad);color:#1a0a08;box-shadow:0 8px 30px #ff2e6340}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px #ff2e6360}
+</style>
+</head>
+<body>
+  <div class="karte">
+    <img class="logo" src="logo-original.png" alt="Die Silvanas">
+    <span class="kicker">Fast geschafft</span>
+    <h1>Noch ein Klick,<br>dann seid ihr dabei</h1>
+    <p>Wir haben euch gerade eine E-Mail geschickt. <strong>Klickt darin einmal auf den
+       Bestätigungslink</strong> – erst danach seid ihr auf der Liste.</p>
+    <p>Das ist Vorschrift und schützt euch: So kann niemand eure Adresse ohne euer
+       Zutun eintragen.</p>
+    <p class="spam">Nichts angekommen? Schaut bitte im Spam-Ordner nach – manchmal
+       landet die erste Mail dort. Absender ist <strong>newsletter@silvanas.de</strong>.</p>
+    <a class="btn" href="/">Zurück zur Startseite</a>
+  </div>
+</body>
+</html>
