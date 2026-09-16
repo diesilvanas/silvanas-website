@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Silvanas – Schlagerduo aus Münster | Neue Single & Termine</title>
-<meta name="description" content="Die Silvanas sind André & Friedhelm – das Schlagerduo für modernen Schlagerpop. Neue Single „Wie kannst du mich verlassen (Nur So! Remix)", alle Termine & Booking.">
+<meta name="description" content="Die Silvanas sind André & Friedhelm – das Schlagerduo für modernen Schlagerpop. Neue Single am 2. Oktober 2026, alle Termine & Booking.">
 <link rel="canonical" href="https://www.silvanas.de/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <!-- Beim Livegang: relative Pfade unten durch absolute URLs ersetzen (https://www.silvanas.de/...) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Silvanas – Schlagerpop mit Herz & Beat">
-<meta property="og:description" content="Neue Single „Wie kannst du mich verlassen (Nur So! Remix)" jetzt im Stream. Alle Shows 2026/2027 & Booking.">
+<meta property="og:description" content="Die neue Single erscheint am 2. Oktober 2026. Alle Shows 2026/2027 & Booking.">
 <meta property="og:image" content="https://www.silvanas.de/og-image.jpg">
 <meta property="og:url" content="https://www.silvanas.de/">
 <meta name="twitter:card" content="summary_large_image">
@@ -216,6 +216,17 @@ section{position:relative;padding:110px 0;z-index:1}
 .chip{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.9rem;font-weight:500;transition:.3s;background:rgba(255,255,255,.03)}
 .chip:hover{border-color:var(--champagne);transform:translateY(-2px);background:rgba(255,255,255,.06)}
 .sp-embed{width:100%;max-width:520px;border:0;border-radius:14px;margin-top:24px;display:block}
+.cover.geheim{cursor:default}
+.cover.geheim:hover{transform:none}
+.cover .geheim-tafel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;background:rgba(10,10,18,.28)}
+.cover .geheim-tafel .frage{font-family:'Anton',Impact,sans-serif;font-size:clamp(6rem,18vw,9rem);line-height:1;color:rgba(255,255,255,.22);text-shadow:0 0 40px rgba(255,46,99,.6)}
+.cover .geheim-tafel .wann{display:inline-block;padding:9px 16px;border-radius:999px;background:rgba(10,10,18,.72);border:1px solid rgba(255,255,255,.14);font-size:.82rem;font-weight:600;letter-spacing:.08em;color:var(--champagne)}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(64px,92px));gap:10px;margin:6px 0 28px}
+.countdown div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:14px 6px 10px;text-align:center}
+.countdown b{display:block;font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.countdown span{display:block;margin-top:6px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.tracks.singles{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.tracks.singles{grid-template-columns:repeat(2,1fr)}}
 
 /* ---------- Musik-Grid ---------- */
 .tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -398,7 +409,8 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
   .hero-img{max-width:420px;margin:0 auto}
   .single-card{grid-template-columns:1fr;padding:32px;gap:34px}
   .cover{max-width:340px;margin:0 auto}
-  .tracks,.albums,.video-grid{grid-template-columns:1fr}
+  .tracks,.tracks.singles,.albums,.video-grid{grid-template-columns:1fr}
+  .countdown{grid-template-columns:repeat(4,1fr)}
   .about{grid-template-columns:1fr;gap:44px}
   .stats{grid-template-columns:repeat(2,1fr)}
   .booking{padding:44px 26px}
@@ -459,19 +471,19 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
     <div class="hero">
       <span class="kicker">Das Schlagerduo · André &amp; Friedhelm</span>
       <h1><img src="logo-original.png" alt="Silvanas – das Schlagerduo" style="width:min(85%,460px);height:auto;display:block;margin:6px 0 4px;filter:drop-shadow(0 14px 40px rgba(0,0,0,.55))"></h1>
-      <p class="sub">Wenn die ersten Takte laufen, bleibt keiner mehr sitzen: <b>Das sind die Silvanas.</b> Schlager, wie er heute klingt – und die neue Single ist da.</p>
+      <p class="sub">Wenn die ersten Takte laufen, bleibt keiner mehr sitzen: <b>Das sind die Silvanas.</b> Schlager, wie er heute klingt – <span id="hero-single-satz">und die neue Single kommt am 2. Oktober.</span></p>
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#single">▶&nbsp; Neue Single</a>
         <a class="btn btn-ghost" href="#shows">Shows 2026</a>
       </div>
       <div class="hero-badges">
         <span><i></i>Zwei Stimmen, ein Beat</span>
-        <span><i></i>25+ Jahre Bühne</span>
+        <span><i></i>Über 40 Jahre Bühne</span>
         <span><i></i>Von Ostfriesland bis Tirol</span>
       </div>
     </div>
     <div class="hero-img">
-      <span class="burst">Neu!<br>„Wie kannst du<br>mich verlassen"</span>
+      <span class="burst" id="hero-burst">Neu!<br>„Wie kannst du<br>mich verlassen"</span>
       <img src="img/duo-freisteller.png" alt="Das Schlagerduo Silvanas – André und Friedhelm" loading="eager">
       <div class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
     </div>
@@ -491,29 +503,36 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
 <section id="single">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker">Jetzt überall im Stream</span>
+      <span class="kicker">Erscheint am 2. Oktober 2026</span>
       <h2>Die neue Single</h2>
     </div>
     <div class="single-card reveal d1">
-      <a class="cover" href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">
-        <img src="img/single-remix-cover.jpg" alt="Cover der Single Wie kannst du mich verlassen (Nur So! Remix) von den Silvanas">
-        <span class="play"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#1a0a08"><path d="M8 5v14l11-7z"/></svg></span></span>
+      <!-- PHASE 1 (bis 18.09. 19:00): Cover verwischt, Titel geheim.
+           PHASE 2 (ab 18.09.): img/single-du-kannst-mich-mal.jpg, Tafel raus, Titel + Text einsetzen.
+           PHASE 3 (ab 02.10.): Hör-Links + Spotify-Player, Countdown raus. -->
+      <a class="cover geheim" id="single-cover" href="#newsletter" aria-label="Zum Newsletter – wer dabei ist, sieht das Cover zuerst">
+        <img id="single-cover-img" src="img/single-du-kannst-mich-mal-geheim.jpg" alt="Das Cover der neuen Silvanas-Single – noch verwischt, Enthüllung am 18. September">
+        <span class="geheim-tafel" id="single-tafel"><span class="frage">?</span><span class="wann" id="single-wann">Cover-Enthüllung: Fr, 18. September, 19 Uhr</span></span>
       </a>
       <div class="single-info">
-        <span class="tag">Neu · 10.07.2026</span>
-        <h3>„Wie kannst du mich verlassen"<br>(Nur So! Remix)</h3>
-        <p>Ein Song übers Verlassenwerden – mit einem Beat, der genau das Gegenteil tut: <b>Er lässt euch nicht mehr los.</b> Aufdrehen, mitsingen, tanzen.</p>
-        <div class="platforms">
-          <a class="chip" href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener">Spotify</a>
-          <a class="chip" href="https://music.amazon.de/search/Silvanas%20Wie%20kannst%20du%20mich%20verlassen" target="_blank" rel="noopener">Amazon Music</a>
-          <a class="chip" href="https://music.youtube.com/search?q=Silvanas+Wie+kannst+du+mich+verlassen" target="_blank" rel="noopener">YouTube Music</a>
+        <span class="tag" id="single-tag">Noch geheim</span>
+        <h3 id="single-titel">Unsere neue Single</h3>
+        <p id="single-text">Vier Worte auf einem Cover, die man eigentlich nicht auf ein Cover schreibt. <b>Am Freitag, 18. September, um 19 Uhr zeigen wir es euch.</b> Und ab dem 2. Oktober gibt es die Single zum Streamen und Downloaden – auf Spotify, Amazon Music, Apple Music und überall sonst.</p>
+        <div class="countdown" id="countdown" aria-label="Countdown bis zur Veröffentlichung am 2. Oktober">
+          <div><b id="cd-t">–</b><span>Tage</span></div>
+          <div><b id="cd-h">–</b><span>Std.</span></div>
+          <div><b id="cd-m">–</b><span>Min.</span></div>
+          <div><b id="cd-s">–</b><span>Sek.</span></div>
         </div>
-        <iframe class="sp-embed" src="https://open.spotify.com/embed/album/4s348PK2j8qNRNqHhg4DzR?theme=0" height="152" loading="lazy" allow="encrypted-media" title="Silvanas auf Spotify anhören"></iframe>
+        <div class="platforms">
+          <a class="btn btn-grad" id="single-cta" href="#newsletter">Cover zuerst sehen – im Newsletter</a>
+        </div>
       </div>
     </div>
 
     <div style="height:56px"></div>
-    <div class="tracks">
+    <div class="tracks singles">
+      <a class="track reveal" href="https://open.spotify.com/intl-de/album/4s348PK2j8qNRNqHhg4DzR" target="_blank" rel="noopener"><img class="t-cover" src="img/single-remix-cover.jpg" alt="Cover der Silvanas-Single Wie kannst du mich verlassen (Nur So! Remix)" loading="lazy"><span class="year">2026 · Single</span><h3>Wie kannst du mich verlassen<br>(Nur So! Remix)</h3><p>Ein Song übers Verlassenwerden – mit einem Beat, der genau das Gegenteil tut: Er lässt euch nicht mehr los.</p><span class="chip" style="margin-top:4px">Anhören</span></a>
       <a class="track reveal" href="https://open.spotify.com/track/7kA8h2HPgxsRMdp2KuvK6v" target="_blank" rel="noopener"><img class="t-cover" src="img/single-solange-mein-herz.jpg" alt="Cover der Silvanas-Single Solange mein Herz" loading="lazy"><span class="year">2025 · Single</span><h3>Solange mein Herz</h3><p>Die Ballade für alle, die schon einmal mit ganzem Herzen geliebt haben.</p><span class="chip" style="margin-top:4px">▶ Anhören</span></a>
       <a class="track reveal d1" href="https://open.spotify.com/track/4iScMusKUxSDVYlB0Kvwmh" target="_blank" rel="noopener"><img class="t-cover" src="img/single-baby-blue.jpg" alt="Cover der Silvanas-Single Baby Blue" loading="lazy"><span class="year">2025 · Single</span><h3>Baby Blue</h3><p>Einmal gehört, den ganzen Tag gesummt – der Sommer-Ohrwurm.</p><span class="chip" style="margin-top:4px">▶ Anhören</span></a>
       <a class="track reveal d2" href="https://open.spotify.com/track/1fSB0NwI2uOUgUmpENivvi" target="_blank" rel="noopener"><img class="t-cover" src="img/single-noch-heisser.jpg" alt="Cover der Silvanas-Single Noch heißer als die Hölle" loading="lazy"><span class="year">2025 · Single</span><h3>Noch heißer als die Hölle</h3><p>Damit fing alles an: der Song, mit dem sich die Silvanas neu erfunden haben.</p><span class="chip" style="margin-top:4px">▶ Anhören</span></a>
@@ -537,14 +556,14 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
       <div class="about-txt reveal d1">
         <span class="kicker">Das sind wir</span>
         <h2>Zwei Cousins.<br>Eine Bühne.<br><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">Ein Sound.</span></h2>
-        <p>Cousins, beste Freunde, Bühnenpartner: André und Friedhelm stehen seit über 25 Jahren gemeinsam auf der Bühne – und klingen heute frischer als je zuvor. Ihr Rezept: <b>Schlagergefühl trifft Beats, die sofort in die Beine gehen.</b></p>
+        <p>Cousins, beste Freunde, Bühnenpartner: André und Friedhelm stehen seit über 40 Jahren gemeinsam auf der Bühne – und klingen heute frischer als je zuvor. Ihr Rezept: <b>Schlagergefühl trifft Beats, die sofort in die Beine gehen.</b></p>
         <p>Live gibt es bei den Silvanas keine Show von der Stange: Die beiden singen nicht für euch – <b>sie feiern mit euch.</b> Nah am Publikum, mitten im Saal, mit einem Programm, das Oma und Enkelin auf dieselbe Tanzfläche holt. Wer einmal dabei war, kommt wieder.</p>
         <div class="quote">„Nur wer Herz hat, kann auch mit Herz Musik machen."</div>
         <a class="btn btn-ghost" href="#booking">Silvanas kennenlernen</a>
       </div>
     </div>
     <div class="stats">
-      <div class="stat reveal"><div class="num" data-count="15">0</div><div class="lbl">Jahre Bühne</div></div>
+      <div class="stat reveal"><div class="num" data-count="40">0</div><div class="lbl">Jahre Bühne</div></div>
       <div class="stat reveal d1"><div class="num" data-count="30">0</div><div class="lbl">Eigene Songs</div></div>
       <div class="stat reveal d2"><div class="num" data-count="5">0</div><div class="lbl">Länder live</div></div>
       <div class="stat reveal d3"><div class="num" data-count="2">0</div><div class="lbl">Stimmen, ein Beat</div></div>
@@ -728,8 +747,8 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
         <div class="faq-a"><p>Ganz einfach per Post: Schick deinen Autogrammwunsch mit frankiertem Rückumschlag an „Autogrammwunsch Silvanas, Damaschkeweg 16, 48145 Münster“ – wir beantworten jede Fanpost persönlich. Oder du holst es dir live bei einem <a href="#shows">Konzert</a> ab.</p></div>
       </div>
       <div class="faq reveal">
-        <div class="faq-q">Wo kann ich die neue Single hören?<span class="pm">+</span></div>
-        <div class="faq-a"><p>„Wie kannst du mich verlassen (Nur So! Remix)“ läuft überall im Stream: auf Spotify, Amazon Music, YouTube und allen gängigen Plattformen. Die Links findest du oben bei der <a href="#single">Single</a>.</p></div>
+        <div class="faq-q">Wann kommt die neue Single?<span class="pm">+</span></div>
+        <div class="faq-a"><p>Am <b>Freitag, 2. Oktober 2026</b> – dann überall im Stream: Spotify, Apple Music, Amazon Music, YouTube Music und allen gängigen Plattformen. Bis dahin: „Wie kannst du mich verlassen (Nur So! Remix)“ und alle anderen Songs findest du oben bei der <a href="#single">Musik</a>.</p></div>
       </div>
     </div>
   </div>
@@ -811,6 +830,70 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
 </button>
 
 <script>
+/* Die neue Single: Das Cover wird von Tag zu Tag klarer und enthüllt sich am
+   Fr 18.09.2026 um 19:00 von selbst — ohne neues Veröffentlichen der Seite.
+   Stufen: bis 17.09. stark verwischt · 17.09. mittel · 18.09. fast klar · ab 19:00 scharf. */
+(function(){
+  var bild=document.getElementById('single-cover-img');
+  if(!bild)return;
+  var karte=document.getElementById('single-cover'),tafel=document.getElementById('single-tafel'),
+      wann=document.getElementById('single-wann'),tag=document.getElementById('single-tag'),
+      titel=document.getElementById('single-titel'),text=document.getElementById('single-text'),
+      cta=document.getElementById('single-cta');
+  var stufen=[
+    {ab:'2026-09-17T00:00:00+02:00',datei:'img/single-du-kannst-mich-mal-geheim2.jpg',wann:'Cover-Enthüllung: morgen, 19 Uhr'},
+    {ab:'2026-09-18T00:00:00+02:00',datei:'img/single-du-kannst-mich-mal-geheim3.jpg',wann:'Cover-Enthüllung: heute, 19 Uhr'}
+  ];
+  var enthuellung=new Date('2026-09-18T19:00:00+02:00').getTime();
+  var voe=new Date('2026-10-02T00:00:00+02:00').getTime();
+  var burst=document.getElementById('hero-burst'),heroSatz=document.getElementById('hero-single-satz');
+  function setzen(){
+    var jetzt=Date.now();
+    if(jetzt>=enthuellung){
+      // Hero: Aufkleber der alten Single weicht der neuen; ab dem 2.10. heißt es „ist da“
+      if(burst)burst.innerHTML='Neu!<br>„Du kannst<br>mich mal"';
+      if(heroSatz)heroSatz.textContent=jetzt>=voe?'und die neue Single ist da.':'und die neue Single kommt am 2. Oktober.';
+      bild.src='img/single-du-kannst-mich-mal.jpg';
+      bild.alt='Cover der neuen Silvanas-Single „Du kannst mich mal“';
+      karte.classList.remove('geheim');
+      karte.setAttribute('href','du-kannst-mich-mal/');
+      karte.setAttribute('aria-label','Alles zur neuen Single „Du kannst mich mal“');
+      if(tafel)tafel.remove();
+      tag.textContent='Neue Single';
+      titel.textContent='Du kannst mich mal';
+      text.innerHTML='Ja, sie heißt wirklich so. Und nein, es ist kein böses Lied – es erzählt, wie aus genau diesen vier Worten die Liebe fürs Leben wurde. <b>Ab Freitag, 2. Oktober,</b> gibt es sie zum Streamen und Downloaden – auf Spotify, Amazon Music, Apple Music und überall sonst.';
+      cta.textContent='Alles zur neuen Single';
+      cta.setAttribute('href','du-kannst-mich-mal/');
+      return true;
+    }
+    for(var i=stufen.length-1;i>=0;i--){
+      if(jetzt>=new Date(stufen[i].ab).getTime()){
+        bild.src=stufen[i].datei;
+        if(wann)wann.textContent=stufen[i].wann;
+        break;
+      }
+    }
+    return false;
+  }
+  if(!setzen())setInterval(setzen,30000);
+})();
+
+/* Countdown bis zur Veröffentlichung: Fr 02.10.2026, 0:00 Uhr (MESZ) */
+(function(){
+  var ziel=new Date('2026-10-02T00:00:00+02:00').getTime();
+  var t=document.getElementById('cd-t'),h=document.getElementById('cd-h'),m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
+  if(!t)return;
+  function z(n){return (n<10?'0':'')+n}
+  function tick(){
+    var d=ziel-Date.now();
+    if(d<=0){document.getElementById('countdown').innerHTML='<div style="grid-column:1/-1;padding:14px"><b style="font-size:1.6rem">Sie ist da!</b></div>';return}
+    var sek=Math.floor(d/1000);
+    t.textContent=Math.floor(sek/86400);h.textContent=z(Math.floor(sek%86400/3600));
+    m.textContent=z(Math.floor(sek%3600/60));s.textContent=z(sek%60);
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
 // Nav-Zustand beim Scrollen + Nach-oben-Button
 const nav = document.getElementById('nav');
 const toTop = document.getElementById('toTop');
@@ -994,6 +1077,12 @@ document.querySelectorAll('.video-card[data-yt]').forEach(card => {
 
 // ===== Event-Popup: zeigt automatisch den nächsten Termin mit Countdown =====
 (function(){
+  // Während der Single-Kampagne ruht die Termin-Vorschau: Auf der Startseite läuft der
+  // Countdown zur neuen Single, zwei Countdowns gleichzeitig nehmen sich die Wirkung.
+  // Ab dem Erscheinungstag (02.10.2026, 0:00) erscheint die Vorschau von selbst wieder.
+  // Regel von Susanne, 16.09.2026.
+  const SINGLE_COUNTDOWN_BIS = new Date('2026-10-02T00:00:00+02:00').getTime();
+  if (Date.now() < SINGLE_COUNTDOWN_BIS) return;
   const today = new Date(); today.setHours(0,0,0,0);
   const upcoming = EVENTS.filter(ev => pDate(ev.end || ev.start) >= today).sort((a,b) => pDate(a.start) - pDate(b.start));
   if (!upcoming.length || sessionStorage.getItem('silvanasPromo')) return;
