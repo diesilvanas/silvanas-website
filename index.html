@@ -844,7 +844,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 40px;position:relative;z-
     {ab:'2026-09-17T00:00:00+02:00',datei:'img/single-du-kannst-mich-mal-geheim2.jpg',wann:'Cover-Enthüllung: morgen, 19 Uhr'},
     {ab:'2026-09-18T00:00:00+02:00',datei:'img/single-du-kannst-mich-mal-geheim3.jpg',wann:'Cover-Enthüllung: heute, 19 Uhr'}
   ];
-  var enthuellung=new Date('2026-09-18T19:00:00+02:00').getTime();
+  var enthuellung=new Date('2026-09-18T10:55:00+02:00').getTime();
   var voe=new Date('2026-10-02T00:00:00+02:00').getTime();
   var burst=document.getElementById('hero-burst'),heroSatz=document.getElementById('hero-single-satz');
   function setzen(){
@@ -1105,7 +1105,7 @@ document.querySelectorAll('.video-card[data-yt]').forEach(card => {
   // Termins — gleicher Rahmen, gleiche Mechanik. Ab dem 02.10. übernimmt von selbst wieder der Termin.
   // (Susanne, 16.09.2026: „als Popup … das beruhigt … Ergänzung zur Sektion")
   const SINGLE_COUNTDOWN_BIS = new Date('2026-10-02T00:00:00+02:00').getTime();
-  const SINGLE_ENTHUELLT = new Date('2026-09-18T19:00:00+02:00').getTime();
+  const SINGLE_ENTHUELLT = new Date('2026-09-18T10:55:00+02:00').getTime();
   const singleModus = Date.now() < SINGLE_COUNTDOWN_BIS;
   const today = new Date(); today.setHours(0,0,0,0);
   const upcoming = EVENTS.filter(ev => pDate(ev.end || ev.start) >= today).sort((a,b) => pDate(a.start) - pDate(b.start));
