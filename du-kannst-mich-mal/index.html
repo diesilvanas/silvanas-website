@@ -95,6 +95,9 @@ footer{padding:40px 0 50px;border-top:1px solid var(--line);font-size:.86rem;col
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a:hover{color:var(--champagne)}
 
+.vormerk-hinweis{color:var(--champagne);font-weight:500}
+.knopf-paar{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
 /* Phasen: body.vor zeigt Vormerken, body.nach zeigt Hören */
 body.vor .nur-nach{display:none}
 body.nach .nur-vor{display:none}
@@ -129,7 +132,14 @@ body.nach .nur-vor{display:none}
         <p><strong>Ja, sie heißt wirklich so.</strong> Und nein, es ist kein böses Lied. Es erzählt,
            wie aus genau diesen vier Worten die Liebe fürs Leben wurde – ein Discofox, bei dem keiner sitzen bleibt.</p>
         <p>Ab Freitag, 2. Oktober, gibt es sie zum Streamen und Downloaden – auf Spotify, Amazon Music, Apple Music und überall sonst. Live bei uns schon vorher.</p>
-        <a class="btn btn-grad" href="#bescheid" style="margin-top:8px">Sagt mir Bescheid, wenn sie da ist</a>
+        <p class="vormerk-hinweis">Ihr könnt sie sich schon jetzt vormerken: ein Klick bei Spotify, Apple Music oder Deezer –
+           und am 2. Oktober liegt sie von allein in eurer Musik.</p>
+        <!-- Pre-Save-Smartlink des Labels (iGroove). Ab dem 02.10. führt derselbe Link direkt zu den Hör-Diensten
+             und kann im "nach"-Block als Übergangslösung genutzt werden, bis die Einzel-Links stehen. -->
+        <div class="knopf-paar">
+          <a class="btn btn-grad" href="https://lnk.site/dukannstmichmal" target="_blank" rel="noopener">Jetzt vormerken</a>
+          <a class="btn btn-ghost" href="#bescheid">Sagt mir Bescheid, wenn sie da ist</a>
+        </div>
       </div>
 
       <div class="nur-nach">
