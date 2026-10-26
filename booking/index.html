@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Die Silvanas buchen · für Veranstalter</title>
+<meta name="description" content="Die Silvanas für Ihre Veranstaltung 2027: Live-Videos, Programme, Fotos und direkter Kontakt zum Booking.">
+<!-- Versteckte Promoseite für Veranstalter (26.10.2026). Nicht von der Homepage verlinkt, nur über die Booking-Mails.
+     Bewusst ohne Namen von Kollegen, Veranstaltern und Orten (Susanne 26.10.: „man weiß nie ob das Konkurrenz ist“). -->
+<style>
+:root{--ink:#0a0a12;--panel:#12121d;--text:#f4f2ee;--muted:#a7a3b3;--gold:#ffb03a;--heart:#ff2e63;--champagne:#e8c77b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6}
+a{color:var(--gold)}
+.hero{position:relative;min-height:460px;display:flex;align-items:flex-end;background:url('../radio26/stimmung-1.jpg') center 30%/cover}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,18,.3),rgba(10,10,18,.55) 55%,var(--ink))}
+.heroinner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:60px 20px 34px;width:100%;text-align:center}
+.heroinner img{width:300px;max-width:72%;filter:drop-shadow(0 4px 16px rgba(0,0,0,.7))}
+.heroinner h1{font-size:clamp(24px,4.8vw,38px);margin-top:18px;line-height:1.25;text-shadow:0 4px 18px rgba(0,0,0,.8)}
+.heroinner h1 em{font-style:normal;background:linear-gradient(90deg,var(--heart),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{display:inline-block;margin-top:14px;padding:6px 18px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.wrap{max-width:900px;margin:0 auto;padding:30px 16px 80px}
+.zahlen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+@media(max-width:700px){.zahlen{grid-template-columns:1fr 1fr}}
+.z{background:var(--panel);border-radius:14px;padding:16px 12px;text-align:center}
+.z b{display:block;font-size:24px;line-height:1.2;background:linear-gradient(90deg,var(--heart),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.z span{color:var(--muted);font-size:13.5px}
+h2{font-size:19px;letter-spacing:.05em;margin:40px 0 16px;color:var(--champagne);text-transform:uppercase}
+.lead{font-size:18px}
+.videobox{background:var(--panel);border-radius:16px;padding:14px;text-align:center}
+.videos{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin-top:12px;max-width:640px;margin-left:auto;margin-right:auto}
+@media(max-width:700px){.videos{gap:8px}}
+.videobox video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000;display:block}
+.videobox.breit video{aspect-ratio:auto;object-fit:contain}
+.credit b{color:var(--text)}
+.credit{color:var(--muted);font-size:13px;margin-top:8px}
+.karten{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.karten{grid-template-columns:1fr}}
+.karte{background:var(--panel);border-radius:16px;padding:20px 22px}
+.karte h3{font-size:17px;margin-bottom:6px;color:var(--text)}
+.karte p{color:var(--muted)}
+.karte .dauer{color:var(--gold);font-weight:600;font-size:14px;margin-bottom:6px}
+.titel{background:var(--panel);border-radius:16px;padding:16px 18px;margin-bottom:12px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.titel img{width:72px;height:72px;object-fit:cover;border-radius:10px;flex:none}
+.tinfo{flex:1;min-width:200px}
+.tinfo strong{display:block;font-size:16px;margin-bottom:6px}
+audio{width:100%;max-width:420px;height:36px}
+.frei{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.frei{grid-template-columns:1fr 1fr}}
+.frei div{background:var(--panel);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.frei b{display:block;color:var(--gold);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:640px){.galerie{grid-template-columns:1fr 1fr}}
+.galerie a{display:block}
+.galerie img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;border-radius:12px;display:block}
+.galerie span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.kontakt{background:linear-gradient(135deg,#1d1024,var(--panel));border:1px solid #ffb03a40;border-radius:18px;padding:28px 24px;margin-top:44px;text-align:center}
+.kontakt h2{margin-top:0}
+.kontakt .name{font-size:20px;font-weight:700}
+.knoepfe{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:linear-gradient(90deg,var(--heart),var(--gold));color:#1a0a08;font-weight:700;text-decoration:none;font-size:15px}
+.btn.zwei{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.hinweis{color:var(--muted);font-size:13.5px;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="heroinner">
+    <img src="../logo-original.png" alt="Die Silvanas">
+    <h1>Zwei Stimmen. Über 40 Jahre Bühne.<br>Und eine Tanzfläche, die&nbsp;<em>voll&nbsp;ist</em>.</h1>
+    <span class="tag">Für Veranstalter · Booking 2027</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="zahlen">
+    <div class="z"><b>Platz 5</b><span>Austria Top 50,<br>Oktober 2026</span></div>
+    <div class="z"><b>Ausverkauft</b><span>das eigene Fantreffen,<br>Oktober 2026</span></div>
+    <div class="z"><b>~100</b><span>Auftritte im Jahr<br>in DE · AT · CH</span></div>
+    <div class="z"><b>3 Fanclubs</b><span>Schweiz, Luxemburg,<br>Ostfriesland</span></div>
+  </div>
+
+  <p class="lead">André und Friedhelm, zwei Cousins aus Münster, stehen seit über 40 Jahren gemeinsam auf der Bühne. Moderner Schlagerpop mit Beat, die großen Klassiker zum Mitsingen und echter zweistimmiger Live-Gesang, mitten im Publikum statt nur auf der Bühne.</p>
+
+  <h2>So sieht ein Abend mit den Silvanas aus</h2>
+  <div class="videobox breit"><video controls playsinline preload="none" poster="../radio26/video-poster-fanfest.jpg"><source src="../radio26/silvanas-live-fanfest.mp4" type="video/mp4"></video><p class="credit"><b>Konzertsaal</b> · Lichtermeer und weiße Jacken, Sommer 2026</p></div>
+  <div class="videos">
+    <div class="videobox"><video controls playsinline preload="none" poster="live-halle-poster.jpg"><source src="live-halle.mp4" type="video/mp4"></video><p class="credit"><b>Große Festhalle</b> · ausverkauft, Oktober 2026</p></div>
+    <div class="videobox"><video controls playsinline preload="none" poster="live-hotel-poster.jpg"><source src="live-hotel.mp4" type="video/mp4"></video><p class="credit"><b>Musikwoche im Hotel</b> · mitten bei den Gästen, September 2026</p></div>
+  </div>
+
+  <h2>Was Sie davon haben</h2>
+  <div class="karten">
+    <div class="karte"><h3>Gäste, die mitkommen</h3><p>Drei eigene Fanclubs und Fans in Deutschland, Österreich und der Schweiz. Jeden Auftritt bewerben die Silvanas auf ihrer Website, auf Facebook, Instagram und TikTok und in den Konzertlisten von Spotify und Apple Music.</p></div>
+    <div class="karte"><h3>Ein aktueller Name fürs Plakat</h3><p>„Du kannst mich mal“ stieg im Oktober 2026 auf Platz 5 der Austria Top 50 ein. Dazu die Sendung „Herzschlag“ bei Schlagerparadies TV, frühere Auftritte in ARD, WDR und SWR.</p></div>
+    <div class="karte"><h3>Eine volle Tanzfläche</h3><p>Schlagerpop mit Beat und Klassiker, die jeder mitsingt. Die beiden gehen an die Tische und auf die Tanzfläche und holen das Publikum ab der ersten Minute ab.</p></div>
+    <div class="karte"><h3>Wenig Aufwand für Sie</h3><p>Programm und Länge nach Absprache, für kleinere Säle auf Wunsch mit eigener Technik. Auf Ihre Anfrage bekommen Sie innerhalb von 48 Stunden ein konkretes Angebot.</p></div>
+  </div>
+
+  <h2>Programme</h2>
+  <div class="karten">
+    <div class="karte"><h3>Showblock</h3><div class="dauer">30 bis 60 Minuten</div><p>Die Hits und die aktuelle Single, ideal für Galas und Festivals mit mehreren Künstlern.</p></div>
+    <div class="karte"><h3>Konzert</h3><div class="dauer">2 × 45 Minuten plus Zugaben</div><p>Der klassische Silvanas-Abend für Säle, Hallen und Festzelte.</p></div>
+    <div class="karte"><h3>Erprobt in jedem Format</h3><p>Open Airs und Festivals, Schlagernächte und Galas, Musikwochen in Hotels, Schlagerreisen zu Wasser und an Land, ganze Konzertabende.</p></div>
+    <div class="karte"><h3>Silvanas &amp; Freunde</h3><p>Auf Wunsch ein kompletter Abend mit befreundeten Künstlern und Moderation, aus einer Hand zusammengestellt.</p></div>
+  </div>
+
+  <h2>Reinhören</h2>
+  <div class="titel"><img src="../img/single-du-kannst-mich-mal.jpg" alt="Cover Du kannst mich mal"><div class="tinfo"><strong>Du kannst mich mal (aktuelle Single, Platz 5 Austria Top 50)</strong><a href="../du-kannst-mich-mal/">Anhören auf Spotify, Apple Music und YouTube</a></div></div>
+  <div class="titel"><img src="../img/single-noch-heisser.jpg" alt="Cover Noch heißer als die Hölle"><div class="tinfo"><strong>Noch heißer als die Hölle</strong><audio controls preload="none" src="../radio26/audio/silvanas-noch-heisser-als-die-hoelle.mp3"></audio></div></div>
+  <div class="titel"><img src="../img/single-baby-blue.jpg" alt="Cover Baby Blue"><div class="tinfo"><strong>Baby Blue</strong><audio controls preload="none" src="../radio26/audio/silvanas-baby-blue.mp3"></audio></div></div>
+  <div class="titel"><img src="../img/single-solange-mein-herz.jpg" alt="Cover Solange mein Herz"><div class="tinfo"><strong>Solange mein Herz</strong><audio controls preload="none" src="../radio26/audio/silvanas-solange-mein-herz-radio.mp3"></audio></div></div>
+
+  <h2>Fotos für Ihre Werbung</h2>
+  <div class="galerie">
+    <a href="../radio26/silvanas-pressefoto.jpg" download><img src="../radio26/silvanas-pressefoto.jpg" alt="Pressefoto Die Silvanas" loading="lazy"><span>Pressefoto (hochauflösend)</span></a>
+    <a href="../radio26/silvanas-buehnenfoto.jpg" download><img src="../radio26/silvanas-buehnenfoto.jpg" alt="Bühnenfoto Die Silvanas" loading="lazy"><span>Bühnenfoto</span></a>
+    <a href="../radio26/duo-freisteller.png" download><img src="../radio26/duo-freisteller.png" alt="Freigestelltes Foto" loading="lazy" style="object-fit:contain;background:#1b1b28"><span>Freisteller für Flyer und Plakate</span></a>
+  </div>
+  <p class="credit">Frei für Ihre Veranstaltungswerbung: Flyer, Plakate, Programmhefte, Website und Social Media.</p>
+
+  <section class="kontakt">
+    <h2>Wunschtermin anfragen</h2>
+    <p class="name">Susanne Wachter</p>
+    <p>Booking &amp; Management Die Silvanas</p>
+    <div class="knoepfe">
+      <a class="btn" href="mailto:support@diesilvanas.de?subject=Anfrage%20Silvanas%202027">Mail schreiben</a>
+      <a class="btn zwei" href="tel:+436641230881">+43 664 1230881</a>
+      <a class="btn zwei" href="https://wa.me/436641230881">WhatsApp</a>
+    </div>
+    <p class="hinweis">Sie bekommen innerhalb von 48 Stunden ein konkretes Angebot. · <a href="Silvanas_Booking-Mappe_2027.pdf" download>Booking-Mappe als PDF</a></p>
+  </section>
+
+</main>
+</body>
+</html>
